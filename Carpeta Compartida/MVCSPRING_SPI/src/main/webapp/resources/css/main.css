@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+.body1{
+	margin: 0 auto;
+	background-color:#005ca8;
+}
+
+.form-group{
+	flex: 1 0%;
+}
+
+
+.imagen2{
+	font-weight: 10vh;
+	height: 15vh;
+	border-left: none;
+}
+.card .card-boby{
+	border-left: none;
+	background-color: #ccc !important; 
+}
+.card{
+	border-left: none;
+	margin: 0 auto;
+	background-color: #005ca8 ;  
+}

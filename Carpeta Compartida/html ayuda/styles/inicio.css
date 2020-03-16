@@ -1,0 +1,25 @@
+.body1{
+	margin: 0 auto;
+	background-color:#005ca8;
+}
+
+.form-group{
+	flex: 1 0%;
+}
+
+
+.imagen1{
+	font-weight: 15vh;
+	height: 15vh;
+	border-left: none;
+}
+.card .card-boby{
+	border-left: none;
+	background-color: #ccc !important; 
+}
+.card{
+	border-left: none;
+	margin: 0 auto;
+	background-color: #005ca8 ;  
+}
+
