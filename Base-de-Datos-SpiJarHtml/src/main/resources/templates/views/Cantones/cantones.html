@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body class="body1">
+	<header th:replace="plantilla/template :: header"></header>
+	<br>
+	<div class="container">
+		<h1 th:text="${titulo2}"></h1>
+	</div>
+	<!--  BOTONES-->
+	<div class="container">
+		<a class="btn btn-info btn-sm rounded-pill" th:href="@{/views/RegistroDelSpi/create}"
+			th:text="'Nuevo Registro'" title="Crear Nuevo Registro">
+		</a>
+	</div><br>
+	<!-- TABLA SPI -->
+	<div class="container">
+		<div class="table-responsive">
+			<table id="example" class="table table-bordered table-hover" style="width: 100%">
+				<thead class="thead bg-info text-white">
+					<tr>
+						<th scope="col">Id Cantón</th>
+						<th scope="col">Zona</th>
+						<th scope="col">Distrito</th>
+						<th scope="col">Cantón</th>
+						<th scope="col">Institución</th>
+						<th scope="col">Dirección</th>
+						<th scope="col">Teléfono</th>
+						<th scope="col">Número de Oficina</th>
+						<th scope="col">Convenio</th>
+						<th scope="col">Observaciones</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr th:each="item:${listacantones}">
+						<th scope="row" th:text="${item.idcanton}"></th>
+						<td th:text="${item.idzona.nombre}"></td>
+						<td th:text="${item.iddistrito.distrito}"></td>
+						<td th:text="${item.nombre}"></td>
+						<td th:text="${item.idspi.idinstitucion.nombre}"></td>
+						<td th:text="${item.idspi.direccion}"></td>
+						<td th:text="${item.idspi.telefono}"></td>
+						<td th:text="${item.idspi.numerodeoficina}"></td>
+						<td th:text="${item.idspi.convenio}"></td>
+						<td th:text="${item.idspi.observaciones}"></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<h1>FIN</h1>
+	</div>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>

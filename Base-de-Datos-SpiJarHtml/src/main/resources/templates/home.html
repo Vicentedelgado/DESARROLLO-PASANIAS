@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/templatehome :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body class="body1">
+	<header th:replace="plantilla/templatehome :: header"></header>
+	<main class="main">
+	<div class="container">
+		<br> <br>
+
+		<div class="row">
+			<div class="col-8">
+				<h1>Secretaría de Derechos Humanos</h1>
+				<hr class="hr2">
+				<h3>Dirección Administrativa</h3>
+				<h4>Modelo de Gestión Administrativa SPI</h4>
+				<img class="imagenhome" th:src="@{/images/todaunavida.png}" />
+			</div>
+
+			<div class="col-4">
+				 <!-- CAMBIO POR AJAX JQuery THYMEMEAF -->
+				<div class="card border-info shadow-lg">
+					<div class="card-header mb-1" ><h3>Filtrar Información</h3></div>
+					<div class="card-body ">
+						<h4 class="card-title">Spi</h4>
+						<form th:action="@{/home}" method="post" id="appointmentForm">
+							<div class="form-group">
+								<label for="spiporzona">Zona:</label>
+								<select class="form-control form-control-sm col-md-8 shadow" required="required" 
+										th:value="${zona.idzona}" name="spiporzona" id="spiporzona">
+										<option disabled="disabled" selected="selected" > -- Elija una zona--</option>
+									    <option th:each="zona:${listazona}" th:value="${zona.idzona}"
+										th:text="${zona.nombre}"></option>
+								</select>
+							</div>
+							</form>
+							<form th:action="@{/home/Elegirspi}" method="post" id="appointmentForm">						
+							<div class="form-group">
+								<label for="spiporzona">Spi:</label> 
+								<select class="form-control form-control-sm col-md-8 shadow"  name="idspi" id="idspi" required="required">
+									<option disabled="disabled" selected="selected" > -- Elija un spi --</option>
+								</select>
+								<button id=miboton>prueba</button> 
+								<input type="hidden" name="valor1" size="40" value="Aquí saldrá el valor del select cuando cambie">
+								<input type="hidden" name="valor2" size="40" id="valor2" value="Aquí saldrá el valor del select cuando cambie">
+							</div>
+							</form>
+                            <a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/Formulario/listaporspi/}+ 1">Filtrar</a>
+							<a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/RegistroDelSpi/}">Ingresar sin Filtrar</a>
+					</div>
+				</div>
+								
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="plantilla/templatehome :: footer"></footer>
+</body>
+</html>

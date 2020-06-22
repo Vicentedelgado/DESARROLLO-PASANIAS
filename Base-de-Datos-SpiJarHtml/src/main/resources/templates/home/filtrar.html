@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<form th:modelAttribute="spi" >
+		<select th:path="idspi" class="form-control form-control-sm col-md-8 shadow">
+			<option disabled="disabled" selected="selected">-- Elija un spi--</option>
+			<option th:each="spi:${listaspi}" th:value="${spi.idspi}"
+				    th:text="${spi.nombre}"></option>
+		</select>
+	</form>
+</html>

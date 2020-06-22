@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<meta charset="UTF-8">
+<!-- Data table css -->
+<link rel="stylesheet"
+	th:href="@{/datatable/DataTables-1.10.21/css/dataTables.bootstrap4.min.css}">
+<title>SpiDatos</title>
+</head>
+<body class="body1">
+	<header th:replace="plantilla/template :: header"></header>
+	<main class="main">
+		<div class="container">
+			<h1 th:text="${titulo}"></h1>
+		</div>
+		<!--  BOTONES-->
+		<div class="container">
+			<!-- <a class="btn btn-info btn-sm rounded-pill" th:href="@{/views/SpiDatos/create}"
+			th:text="'Nuevo Registro'" title="Crear Nuevo Registro de Spi">
+		</a> -->
+			<!-- Button modal -->
+			<a class="btn btn-info btn-sm rounded-pill text-white shadow"
+				data-toggle="modal" data-target="#saveModal"
+				th:text="'Crear nuevo registro de Spi'"
+				title="Crear nuevo registro de Spi"></a>
+			<!-- <a class="btn btn-info btn-sm rounded-pill" data-toggle="modal"
+			data-target="#editarModal">Editar Registro De Spi</a> -->
+		</div>
+		<br>
+		<!-- TABLA  DE REGISTRO SPI-->
+		<div class="container">
+			<div class="table-responsive">
+				<table id="example"
+					class="table table-bordered table-hover shadow-lg"
+					style="width: 100%">
+					<thead class="thead  bg-info text-white">
+						<tr>
+							<th class="ocultarcolunma" scope="col">Id</th>
+							<th scope="col">Spi</th>
+							<th scope="col">Zona de Ubicación</th>
+							<th scope="col">Institución Donde Funciona</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Número Teléfonico</th>
+							<th scope="col">Número de Oficina</th>
+							<th scope="col">Convenio</th>
+							<th scope="col">Da Servicio</th>
+							<th scope="col">Observaciones</th>
+							<th scope="col">EDITAR</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr th:each="item:${listaspidatos}">
+							<th class="ocultarcolunma" scope="row" th:text="${item.idspi}"></th>
+							<td th:text="${item.nombre}"></td>
+							<td th:text="${item.idzona.nombre}"></td>
+							<td th:text="${item.idinstitucion.nombre}"></td>
+							<td th:text="${item.direccion}"></td>
+							<td th:text="${item.telefono}"></td>
+							<td th:text="${item.numerodeoficina}"></td>
+							<td th:text="${item.convenio}"></td>
+							<td th:text="${item.daservicioa}"></td>
+							<td th:text="${item.observaciones}"></td>
+							<td><a th:href="@{edit/(idspi=${item.idspi})}"
+								class="btn btn-info btn-sm rounded-pill editModal shadow"
+								th:text="'Editar'" title="Editar"></a></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- MODAL DE VENTANA  FORMULARIO GUARDAR -->
+			<form th:action="@{/views/SpiDatos/save}" th:object=${spidatos}
+				method="post">
+				<div class="modal fade" id="saveModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header bg-info  text-white">
+								<h5 class="modal-title" th:text="${titulo1}"
+									id="exampleModalLabel"></h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<!-- FORMULARIO MODAL-->
+								<div class="form-group row">
+									<label class="col-md-2" for="nombre">Spi:</label> <input
+										type="text" th:field="*{nombre}"
+										class="form-control form-control-sm col-md-6 shadow "
+										id="nombre" placeholder="Ingrese nombre del nuevo Spi">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="idzona">Zona de Ubicación:</label>
+									<select th:field="*{idzona}"
+										class="form-control form-control-sm col-md-6 shadow "
+										id="idzona">
+										<option th:each="zona:${listazona}" th:value="${zona.idzona}"
+											th:text="${zona.nombre}"></option>
+									</select>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="idinstitucion">Institución
+										Donde Funciona:</label> <select th:field="*{idinstitucion}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="idinstitucion">
+										<option th:each="institucion:${listainstitucion}"
+											th:value="${institucion.idinstitucion}"
+											th:text="${institucion.nombre}"></option>
+									</select>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="direccion">Dirección:</label> <input
+										type="text" th:field="*{direccion}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="direccion"
+										placeholder="Ingrese la dirección actual del Spi"> <small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="telefono">Número
+										Telefónico:</label> <input type="text" th:field="*{telefono}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="telefono" placeholder="Ingrese número telefónico del Spi">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="numerodeoficina">Número de
+										Oficina:</label> <input type="text" th:field="*{numerodeoficina}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="numerodeoficina"
+										placeholder="Ingrese número de oficina del Spi"> <small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="convenio">Convenio:</label> <select
+										th:field="*{convenio}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="convenio">
+										<option th:value="Si" th:text="Si"></option>
+										<option th:value="No" th:text="No"></option>
+									</select>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="daservicioa">Da Servio a:</label>
+									<input type="text" th:field="*{daservicioa}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="daservicioa"
+										placeholder="Ingrese cantones/parroquia a los que da servio">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="observaciones">Observaciones:</label>
+									<input type="text" th:field="*{observaciones}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="observaciones"
+										placeholder="Ingrese observaciones sobre el Spi"> <small></small>
+								</div>
+								<div class="modal-footer">
+									<button type="button"
+										class="btn btn-info btn-sm rounded-pill shadow"
+										data-dismiss="modal">Cancelar</button>
+									<input type="submit"
+										class="btn btn-success btn-sm rounded-pill shadow"
+										value="Guardar" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!-- MODAL DE VENTANA  FORMULARIO EDITAR -->
+			<div class="editar">
+				<form th:action="@{/views/SpiDatos/save}" th:object=${spidatos}
+					method="post">
+					<div class="modal fade" id="editarModal" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header bg-info  text-white">
+									<h5 class="modal-title" th:text="${titulo2}"
+										id="exampleModalLabel"></h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!-- FORMULARIO MODAL-->
+									<div class="form-group row">
+										<input type="hidden" th:field="*{idspi}" id="idspi"> <label
+											class="col-md-2" for="nombre">Spi:</label> <input type="text"
+											th:field="*{nombre}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="nombre" placeholder="Ingrese nombre del nuevo Spi">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="idzona">Zona de
+											Ubicación:</label> <select th:field="*{idzona}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="idzona">
+											<option th:each="zona:${listazona}" th:value="${zona.idzona}"
+												th:text="${zona.nombre}"></option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="idinstitucion">Institución
+											Donde Funciona:</label> <select th:field="*{idinstitucion}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="idinstitucion">
+											<option th:each="institucion:${listainstitucion}"
+												th:value="${institucion.idinstitucion}"
+												th:text="${institucion.nombre}"></option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="direccion">Dirección:</label> <input
+											type="text" th:field="*{direccion}"
+											class="form-control form-control-lg col-md-6 shadow"
+											id="direccion"
+											placeholder="Ingrese la dirección actual del Spi"> <small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="telefono">Número
+											Telefónico:</label> <input type="text" th:field="*{telefono}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="telefono" placeholder="Ingrese número telefónico del Spi">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="numerodeoficina">Número
+											de Oficina:</label> <input type="text" th:field="*{numerodeoficina}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="numerodeoficina"
+											placeholder="Ingrese número de oficina del Spi"> <small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="convenio">Convenio:</label> <input
+											type="text" th:field="*{convenio}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="convenio" placeholder="El Spi tiene convenio o no">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="daservicioa">Da Servio a:</label>
+										<input type="text" th:field="*{daservicioa}"
+											class="form-control form-control-lg col-md-6 shadow"
+											id="daservicioa"
+											placeholder="Ingrese cantones/parroquia a los que da servio">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="observaciones">Observaciones:</label>
+										<input type="text" th:field="*{observaciones}"
+											class="form-control form-control-lg col-md-6 shadow"
+											id="observaciones"
+											placeholder="Ingrese observaciones sobre el Spi"> <small></small>
+									</div>
+									<div class="modal-footer">
+										<button type="button"
+											class="btn btn-info btn-sm rounded-pill shadow"
+											data-dismiss="modal">Cancelar</button>
+										<input type="submit"
+											class="btn btn-success btn-sm rounded-pill shadow"
+											value="Guardar cambios" />
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

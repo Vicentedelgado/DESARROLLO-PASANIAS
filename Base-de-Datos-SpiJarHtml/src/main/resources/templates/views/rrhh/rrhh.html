@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<meta charset="UTF-8">
+<title>Recurso Humano</title>
+</head>
+<body class="body1">
+	<header th:replace="plantilla/template :: header"></header>
+	<main class="main">
+		<div class="container">
+			<h1 th:text="${titulo}"></h1>
+		</div>
+		<!--  BOTONES-->
+		<div class="container">
+			<!-- <a class="btn btn-info btn-sm rounded-pill" th:href="@{/views/RRHH/create}"
+			th:text="'Nuevo Registro'" title="Ingrese Nuevo Registro">
+		</a> -->
+			<!-- Button modal -->
+			<a class="btn btn-info btn-sm rounded-pill text-white shadow"
+				data-toggle="modal" data-target="#saveModal"
+				th:text="'Crear nuevo registro'" title="Crear Nuevo Registro"></a>
+		</div>
+		<br>
+		<!-- TABLA RRHH-->
+		<div class="container">
+			<div class="table-responsive">
+				<table id="example" class="table table-bordered table-hover"
+					style="width: 100%">
+					<thead class="thead bg-info text-white">
+						<tr>
+							<th class="ocultarcolunma" scope="col">Id</th>
+							<th scope="col">Nombres</th>
+							<th scope="col">Apellidos</th>
+							<th scope="col">Cédula</th>
+							<th scope="col">Zona Spi</th>
+							<th scope="col">Spi (lugar de trabajo)</th>
+							<th scope="col">Cargo</th>
+							<th scope="col">Estado del Funcionario</th>
+							<th scope="col">Unidad</th>
+							<th scope="col">Número Telefónico</th>
+							<th scope="col">Email</th>
+							<th scope="col">Dirección de Domicilio</th>
+							<th scope="col">EDITAR</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr th:each="item:${listarrhh}">
+							<th class="ocultarcolunma" scope="row" th:text="${item.idusuario}"></th>
+							<td th:text="${item.nombres}"></td>
+							<td th:text="${item.apellidos}"></td>
+							<td th:text="${item.cedula}"></td>
+							<td th:text="${item.idzona.nombre}"></td>
+							<td th:text="${item.idspi.nombre}"></td>
+							<td th:text="${item.cargo}"></td>
+							<td th:text="${item.estado}"></td>
+							<td th:text="${item.unidad}"></td>
+							<td th:text="${item.telefono}"></td>
+							<td th:text="${item.email}"></td>
+							<td th:text="${item.direccion}"></td>
+							<td><a th:href="@{edit/(idusuario=${item.idusuario})}"
+								class="btn btn-info btn-sm rounded-pill editModal shadow"
+								th:text="'Editar'" title="Editar"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- MODAL DE VENTANA  FORMULARIO GUARDAR -->
+			<form th:action="@{/views/RRHH/save}" th:object=${rrhh} method="post">
+				<div class="modal fade" id="saveModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header bg-info  text-white">
+								<h5 class="modal-title" th:text="${titulo1}"
+									id="exampleModalLabel"></h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<!-- FORMULARIO MODAL-->
+								<div class="form-group row">
+									<label class="col-md-2" for="nombres">Nombres:</label> <input
+										type="text" th:field="*{nombres}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="nombres"
+										placeholder="Ingrese nombres completos del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="apellidos">Apellidos:</label> <input
+										type="text" th:field="*{apellidos}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="apellidos"
+										placeholder="Ingrese apellidos completos del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="cedula">Cédula:</label> <input
+										type="text" th:field="*{cedula}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="cedula" placeholder="Ingrese número de cédula"> <small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="idzona">Zona de Ubicación:</label>
+									<select th:field="*{idzona}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="idzona">
+										<option th:each="zona:${listazona}" th:value="${zona.idzona}"
+											th:text="${zona.nombre}"></option>
+									</select>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="idspi">Spi (lugar de
+										trabajo):</label> <select th:field="*{idspi}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="idspi">
+										<option th:each="spi:${listaspi}" th:value="${spi.idspi}"
+											th:text="${spi.nombre}"></option>
+									</select>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="cargo">Cargo:</label> <input
+										type="text" th:field="*{cargo}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="cargo" placeholder="Ingrese el cargo que ocupa"> <small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="estado">Estado del
+										Funcionario:</label> <input type="text" th:field="*{estado}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="estado"
+										placeholder="Ingrese el estado de función del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="unidad">Unidad:</label> <input
+										type="text" th:field="*{unidad}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="unidad"
+										placeholder="Ingrese la unidad de trabajo del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="telefono">Número
+										Telefónico:</label> <input type="text" th:field="*{telefono}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="telefono"
+										placeholder="Ingrese número telefónico del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="email">Email:</label> <input
+										type="text" th:field="*{email}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="email" placeholder="Ingrese el email del funcionario">
+									<small></small>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-2" for="direccion">Dirección de
+										Domicilio:</label> <input type="text" th:field="*{direccion}"
+										class="form-control form-control-sm col-md-6 shadow"
+										id="direccion"
+										placeholder="Ingrese la dirección de domicilio del funcionario">
+									<small></small>
+								</div>
+								<div class="modal-footer">
+									<button type="button"
+										class="btn btn-info btn-sm rounded-pill shadow"
+										data-dismiss="modal">Cancelar</button>
+									<input type="submit"
+										class="btn btn-success btn-sm rounded-pill shadow"
+										value="Guardar" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			
+			<!-- MODAL DE VENTANA  FORMULARIO EDITAR -->
+			<div class="editar">
+				<form th:action="@{/views/RRHH/save}" th:object=${rrhh}
+					method="post">
+					<div class="modal fade" id="editarModal" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header bg-info  text-white">
+									<h5 class="modal-title" th:text="${titulo2}"
+										id="exampleModalLabel"></h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!-- FORMULARIO MODAL-->
+									<div class="form-group row">
+										<input type="hidden" th:field="*{idusuario}"> <label
+											class="col-md-2" for="nombres">Nombres:</label> <input
+											type="text" th:field="*{nombres}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="nombres"
+											placeholder="Ingrese nombres completos del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="apellidos">Apellidos:</label> <input
+											type="text" th:field="*{apellidos}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="apellidos"
+											placeholder="Ingrese apellidos completos del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="cedula">Cédula:</label> <input
+											type="text" th:field="*{cedula}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="cedula" placeholder="Ingrese número de cédula"> <small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="idzona">Zona de
+											Ubicación:</label> <select th:field="*{idzona}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="idzona">
+											<option th:each="zona:${listazona}" th:value="${zona.idzona}"
+												th:text="${zona.nombre}"></option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="idspi">Spi (lugar de
+											trabajo):</label> <select th:field="*{idspi}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="idspi">
+											<option th:each="spi:${listaspi}" th:value="${spi.idspi}"
+												th:text="${spi.nombre}">"${spi.nombre}"</option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="cargo">Cargo:</label> <input
+											type="text" th:field="*{cargo}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="cargo" placeholder="Ingrese el cargo que ocupa">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="estado">Estado del
+											Funcionario:</label> <input type="text" th:field="*{estado}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="estado"
+											placeholder="Ingrese el estado de función del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="unidad">Unidad:</label> <input
+											type="text" th:field="*{unidad}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="unidad"
+											placeholder="Ingrese la unidad de trabajo del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="telefono">Número
+											Telefónico:</label> <input type="text" th:field="*{telefono}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="telefono"
+											placeholder="Ingrese número telefónico del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="email">Email:</label> <input
+											type="text" th:field="*{email}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="email" placeholder="Ingrese el email del funcionario">
+										<small></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-2" for="direccion">Dirección de
+											Domicilio:</label> <input type="text" th:field="*{direccion}"
+											class="form-control form-control-sm col-md-6 shadow"
+											id="direccion"
+											placeholder="Ingrese la dirección de domicilio del funcionario">
+										<small></small>
+									</div>
+									<div class="modal-footer">
+										<button type="button"
+											class="btn btn-info btn-sm rounded-pill shadow"
+											data-dismiss="modal">Cancelar</button>
+										<input type="submit"
+											class="btn btn-success btn-sm rounded-pill shadow"
+											value="Guardar cambios" />
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>
