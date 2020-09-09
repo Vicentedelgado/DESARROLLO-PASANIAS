@@ -1,0 +1,83 @@
+1;1;1;Verónica Cristina;Valdez Grefa;1714137351;Trabajadora Social;Guayabamba, Calle Simon Bolivar, primer redondel a la derecha a una cuadra de la cancha sintetica, Casa Nro. S4_360;SA;SE;0984840583;veronica.valdez@derechoshumanos.gob.ec
+2;2;1;Zara Elizabeth;Vizcaíno Pusca;2100513858;Psicóloga Clínica;Otavalo, Santiaguillo, Conjunto Santiago del Valle, Casa 24;SA;SE;0981877862;zara.vizcaino@derechoshumanos.gob.ec
+3;3;1;Ana Cecilia ;Castillo Lima;0400721262;Trabajadora Social;Urbanización Argentina, Calle Rafael Carvajal y Gaspar de Villarroel tras del Cuerpo de Bombros ;SA;SE;0994678222;ana.castillo@derechoshumanos.gob.ec
+4;3;1;Paola Andrea;Méndez Morán;0401664552;Trabajadora Social;SA;SA;SE;0994861885;paola.mendez@derechoshumanos.gob.ec
+5;4;1;Martha ;Páez Changa;0802280594;Trabajadora Social;San Lorenzo, Av. De 10 de Agosto y Rio Nadadero, frente a la Unidad Educativa 10 de Agosto.;SA;SE;0990450197;martha.paez@derechoshumanos.gob.ec
+6;4;1;Mayte;Ramírez Bravo;0801218470;SE;Borbon, Barrio Torres Gemelas, Cancha 1 de mayo, Labia de dos jardines;SA;SE;0967004326;mayte.ramirez@derechoshumanos.gob.ec
+7;5;1;Carmen Margarita;Tenorio Rosales;0800404709;Trabajadora Social;Esmeraldas, Avda. Colon y Salinas, junto a Almancenes TIA y el Local Comercial Mr. Sanduche.;SA;SE;0981421109;carmen.tenorio@derechoshumanos.gob.ec
+8;5;1;Luis ;Rosero Silva;0603797093;SE;Esmeraldas, Avda. Colon y Salinas, junto a Almancenes TIA y el Local Comercial Mr. Sanduche.;SA;SE;0983538872;luis.rosero@derechoshumanos.gob.ec
+9;6;1;Katherine Daniela ;Rueda Hernández;1003612551;SE;Lago Agrio, Calle Eugenio Espejo y Chimborazo;SA;SE;0984144693;katherine.rueda@derechoshumanos.gob.ec
+10;7;2;Gloria Guillermina;Corral Vera;1306521038;Trabajadora Social;JACINTO DE EVIA N59-30 Y ANGEL LUDEÑA, DIAGONAL AL HOSPITAL DEL ADULTO MAYOR;SA;SE;0959650935;gloria.corral@derechoshumanos.gob.ec
+11;7;2;Paulina Amparo;Guaiña Saula;0604867101;Psicóloga Clínica;AV, HUAYANAYÑAN Y RUMICHACA, PJE D CASA 203, CONJUNTO HABITACIONAL NINALLACTA, TRAS SANTAMARIA DEL TERMINAL QUITUMBE;SA;SE;0979193374;paulina.guaina@derechoshumanos.gob.ec
+12;8;2;Jimena Fernanda;Prado Paucar;1722720701;SE;AV. ALEJANDRO LABAKA Y LOS RÍOS, FRENTE A UNIDAD EDUCATIVA CIUDAD DEL COCA;SA;SE;0999246595;jimena.prado@derechoshumanos.gob.ec
+13;8;2;Karolina Vanessa;Arroyo Delgado;0803004068;SE;Fray Gregorio de Aluminia y Juan Hulcite, a una cuadra de casa Paula.;SA;SE;0988938206;karolina.arroyo@derechoshumanos.gob.ec
+14;9;2;Lorena ;Roa Salazar;1103240089;Trabajadora Social;Calle Huaichiyacu y Rubén Lerzón, frente a Subestación Eléctrica.;SA;SE;0968019777;lorena.roa@derechos humanos.gob.ec
+15;9;2;Helen Dayana;Vizuete Chinachi;1501110058;Psicóloga Clínica;Comunidad Nueva Esperanza, frente a escuela Padre Juan de Velasco;SA;SE;0960243450;helen.vizuete@derechoshumanos.gob.ec
+16;10;2;Alicia;González Flores;1709099350;Trabajadora Social;Calle C1 y calle D1 Lote 16, Miravalle sector Loma de Puengasí;SA;SE;0980399030;alicia.gonzalez@derechoshumanos.gob.ec
+17;10;2;Jenny Marcela ;Echeverría Santana;1721309365;Psicóloga Clínica;Santa Clara 3, Chillogallo, calle J y calle 7, lote 282, cerca a Huarcay;SA;SE;0993433136;jenny.echeverría@derechoshumanos.gob.ec
+18;11;2;Mayra Patricia;Aldas Landázuri;0400605382;Parvularia;Ibarra, calle Bolivia 245 y Colombia;SA;SE;0996352971;mayra.aldas@derechoshumanos.gob.ec
+19;11;2;Irma Liliana;Cadena Camino;1716989577;Trabajadora Social;Parroquia Ascázubi, barrio Bellavista, calle Rocafuerte y canal de riego.;SA;SE;0983952698;irma.cadena@derechoshumanos.gob.ec
+20;14;3;Valeria Elizabeth;Berrones Cuesta;0603461450;Trabajadora Social;Cdla. Las Acacias, calles Río Coca entre Río Amazonas y Río Marañon;SA;SE;0996392385;valeria.berrones@derechoshumanos.gob.ec
+21;14;3;Martha Cecilia;Loya Conde;1707242457;Trabajadora Social;Calle Río Amazonas y Río Santiago, casa No. 2, Cdla. Las Acacias;SA;SE;0996644557;martha.loya@derechoshumanos.gob.ec
+22;13;3;Fernanda del Carmen;Carrillo Tubon;1803579661;Trabajadora Social;Ambato, Calle Cristóbal Ojeda Dávila y Brito Benavides, sector La Joya;SA;SE;0995675122;fernanda.carrillo@derechoshumanos.gob.ec
+23;13;3;Maria Fernanda;Sánchez Montero;1804343091;Psicóloga Clínica;Ambato, Urbanización La Merced, calle Alberto Cobo y Pasaje Houston;SA;SE;0987990778;maria.sanchez@derechoshumanos.gob.ec
+24;13;3;Luis Eduardo;Sánchez Romo;1804114955;Psicólogo Clínico;Ambato, Cdla. La Floresta, calles Aparicio Rivadeneira y Gustavo Eguez S-N;SA;SE;0984222425;luis.sanchez@derechoshumanos.gob.ec
+25;13;3;Patricia Jacqueline;Santamaría Guisamana;1804374385;Trabajadora Social;Calle Río Salado y Av. Los Chasquis;SA;SE;0984851000;patricia.santamaria@derechoshumanos.gob.ec
+26;12;3;Jadira Elizabeth;Moreta Vinueza;1802929172;Psicóloga Clínica;Salcedo, barrio Eloy Alfaro, vía Anchilivi, Conjunto Sierra Vista;SA;SE;0984139272;jadira.moreta@derechoshumanos.gob.ec
+27;12;3;Consuelo Del Rocio;Segovia Sandoval;0502507387;Psicóloga Clínica;Salcedo, Calle Sucre y 9 de Octubre, barrio La Florida;SA;SE;0998677161;consuelo.segovia@derechoshumanos.gob.ec
+28;15;3;Alexandra Elizabeth;Pilamunga Llumitasig;1804632634;Trabajadora Social;Barrio Intipungo, calle Vicente Rocafuerte, frente al Complejo;SA;SE;0983461018;alexandra.pilamunga@derechoshumanos.gob.ec
+29;20;4;Leticia Leonor;García Pilay;131240655-4;Trabajadora Social;Av. Del Ejercito y 4ta transversal;SA;SE;0959431435;leticia.garcia@derechoshumanos.gob.ec
+30;17;4;Janine Maribel ;Sánchez Zambrano ;02300274681;Psicóloga Clínica;km. 2 vía Río chico de Rocafuerte. Sitio Tabacales;SA;SE;"0999676462 0967232940";janine.sanchez@derechoshumanos.gob.ec
+31;17;4;Angélica Delmira;Villamil Barzola;1308028040;Trabajadora Social;Cdla. Divino Niño. Calle 404 diagonal a CNH;SA;SE;0983633521;angelica.villamil@derechoshumanos.gob.ec
+32;16;4;María Dolores;Monge Flores De Válgaz;0400567913;Analista;Av. Universitaria entre Ramos Iduarte y America esquina;SA;SE;0991695452;maria.monge@derechoshumanos.gob.ec
+33;16;4;Dennys Inés;Reinoso Macías;1308460144;Analista en Psicología;Cdla. Paraiso, calle 22 de noviembre;SA;SE;0939804697;dennys.reinoso@derechoshumanos.gob.ec
+34;18;4;Luis Eduardo;Torres Paladines;0700914005;Psicólogo Clínico;Av. Quevedo N1136 y Manuel Borrero;SA;SE;0993654565;luis.torres@derechoshumanos.gob.ec
+35;19;4;Andy Einstein;García García;1311613564;Psicólogo Clínico;Av. 5 de junio y callejon 25 septiembre;SA;SE;0996307829;andy.garcia@derechoshumanos.gob.ec
+36;19;4;María Dolores;Párraga Ponce;1312234808;Trabajadora Social;Sitio Resbalon. Vía al Rodeo. Diagonal a la dulceria Resbalon;SA;SE;0988736605;maria.parraga@derechoshumanos.gob.ec
+37;27;5;Domenica Alexandra;Flor Contreras;1205160870;Psicóloga Clínica;Babahoyo, Sector Barrio Lindo, Calle Roldos Y Calle H - Ref. En La Cuadra De La Unidad Educativa Adolfo Maria Astudillo.;SA;SE;0991035560;domenica.flor@derechoshumanos.gob.ec
+38;27;5;Carmen Isabel;Lara Gomez;0913825030;SE;Milagro Puerto Rico # 301 Y Esmerlda;SA;SE;0986456674;SIN CORREO
+39;24;5;Juana Consuelo;Toala Chavez;1313215228;Trabajadora Social;Portoviejo. Parroquia Picoaza, Calle Comercio Y Colon Atrás De La Iglesia (Pasando El Primer Muro Tienda Mariel.);SA;SE;0998904919;juana.toala@derechoshumanos.gob.ec
+40;29;5;Paola Victoria;Ajila Peñafiel;0603585837;Servidora Pública 3;Riobamba, Parroquia Lizarzaburo, Ciudadela Cemento, Calles Óscar Efren Reyes Y Alfrefo Pareja, Mz.C Casa 13;SA;SE;0995001894;paoviki88@hotmail.com
+41;25;5;Elizabeth Del Carmen;Cedillo Romero;0909678815;Analista;Milagro Av Colón Y Federico Paez A Una Cuadra Del Mercado Colón;SA;SE;0986243015;elizabeth.cedillo@derechoshumanos.gob.ec
+42;25;5;Marjorie Ingrid;Jiménez Briones;1203217490;Analista;Milagro, Cdla 22 De Noviembre Calles Placido Vega 105 Y Av Amazonas ( A Una Cuadra De La U.E.Julio Viteri Gamboa);SA;SE;0959442211;marjorie.jimenez@derechoshumanos.gob.ec
+43;28;5;Gema Maria;Mendoza Mera;1312063538;Trabajadora Social;Salinas , Cdla Costa Oro ,Av 11 ,Calle 3 Manzana 5;SA;SE;"0990038044 0961526557";gema.mendoza@derechoshumanos.gob.ec
+44;28;5;Guadalupe del Rocío;Mora Pinos;0;Psicóloga Clínica;Salinas Cdla. Italiana  Calle 55 Entre 28 Y 29;SA;SE;0993061831;guadalupe.mora@derechoshumanos.gob.ec
+45;23;5;Nataly Del Rocio;Intriago Cañola;1314581313;SE;Babahoyo, Ciudadela Los Perales Entre La Calle 5 Y Calle G Planta Baja Casa De Color Blanco En La Parte De Afuera Cerca De Zinc;SA;SE;0993789173;SIN CORREO
+46;22;5;Joselin Gabriela;Castillo Peñafiel;2000075586;Trabajadora Social;San Cristobal, Barrio Frío, Av. Armada Nacional Y Charles Darwin (Junto Al Banecuador-Casa Blanca);SA;SE;0992222235;joselin.castillo@derechoshumanos.gob.ec
+47;22;5;Lucia De Las Mercedes;Vaca Narváez;1804260899;Analista SPI;San Cristóbal, Barrio Fragata, Calle Paquisha, Casa Blanca, Tres  Pisos;SA;SE;0995435724;lucia.vaca@derechoshumanos.gob.ec
+48;21;5;Blanca Aracelly;Mawyin Armijos;1204897449;Analista;Santa Cruz, Barrio La Cascada Callejón 1 Entre Calles Duncan Y Marchena, Departamento Color Verde Planta Baja.;SA;SE;0968619899;blanca.mawyin@derechoshumanos.gob.ec
+49;30;6;Karla Fernanda;Pineda Quinonez;0801625773;Trabajadora Social;Condominio Las Pircas Tras Los Jardines San Joaquin Junto A La Cancha Farolito - Canton Cuenca;SA;SE;0986188683;karla.pineda@derechoshumanos.gob.ec
+50;30;6;Mercy Lucía;Garzon Pesantez;0300698529;Psicóloga Clínica;Rio Chanchan 189 Y Av. Yanahurco 2 Cuadras Antes Del Parque Banco De La Vivienda Cuenca;SA;SE;0987159242;mercy.garzón@derechoshumanos.gob.ec
+51;30;6;Miriam Nataly;Lazo Enriquez;0104449483;Trabajadora Social;Jose Ortega  Igasset Y Alonso Damaso Marginal Al Rio Yanuncay  - Canton  Cuena;SA;SE;0988556677;miriam.lazo@derechoshumanos.gob.ec
+52;32;6;Luz María;Zaruma Palchizaca;0105494892;Psicóloga Clínica;Chordeleg Y Gualaquiza S/N Esq. Sector Misicata Canton Cuenca;SA;SE;0983548443;luz.zaruma@derechoshumanos.gob.ec
+53;31;6;SE;SE;0;SE;SA;SA;SE;0;SIN CORREO
+54;34;6;Veronica del Cisne;Gonzalez Parra;1103553002;Trabajadora Social;Prolongacion Pablo Charpantier  50 Metros De La Via Panamericana Canton El Tambo;SA;SE;0999363810;veronica.gonzalez@derechoshumanos.gob.ec
+55;33;6;Geoconda Fanny;Gonzalez Maza;1400501522;Psicóloga Clínica;Atahualpha S-N Frente A La Escuela Victor Emilio Estrada Casa De La Sra. Evita Carpio. Gualaquiza;SA;SE;0993459197;fanny.gonzalez@derechoshumanos.gob.ec
+56;33;6;German Guido;Gonzalez Villavicencio;1103529184;Trabajador Social;Daniel Flores Y Enrique Arizaga  Junto A La Peluqueria Gaby En Canton Sucua Barrio Sur;SA;SE;0969578819;guido.gonzalez@derechoshumanos.gob.ec
+57;33;6;Bélgica Rocío ;Sarango Velez;1103875561;Trabajadora Social;Calle Tomas Galeas Entre Jaime Roldos Y 12 De Febrero  - Frente Al Espacio Cubierto Del  Barrio La Union   En Macas ;SA;SE;0959465209;belgica.sarango@derechoshumanos.gob.ec
+58;37;7;Juliana Sophia;Cueva Mejía;1104705429;Psicóloga Clínica; Calles Tomas Torres Y Abraham Lincon #701-114. Frente Al Colegio 27 De Febrero-Loja;SA;SE;0989419846;juliana.cueva@derechoshumanos.gob.ec
+59;37;7;Maria Alicia;Pérez Olaya;0702414095;Trabajadora Social;Calle Cuba ·425-A96 Entre Pio Jaramillo Y Chile-Loja;SA;SE;0985762982;maria.perez@derechoshumanos.gob.ec
+60;35;7;Leddy Lorena;Correa De La Rosa;0705380897;Psicóloga Clínica;Calle Santa Rosa Y Guabo #1308. Junto A La Clinica San Luis-Machala;SA;SE;0987218631;leddy.correa@derechoshumanos.gob.ec
+61;35;7;Sofía Brigette;Ávila Guanuchi;0706365830;Trabajadora Social;Calle Buenavista Y Ambrosio Gumal #3507 100 Metros Antes De Llegar Al Parque Zoila Ugarte-Machala;SA;SE;0997283090;sofia.avila@derechoshumanos.gob.ec
+62;36;7;Jennifer Paola;Muima Quezada;0301948352;Psicóloga Clínica;Calles H Y Av Sin Nombre. Cdla El Progreso- Arenillas;SA;SE;0992935902;jennifer.muima@derechoshumanos.gob.ec
+63;36;7;Stefani Eliana;Naranjo Hidalgo;0705069532;Trabajadora Social;Calle 1ero De Mayo Y Buenos Aires- Arenillas;SA;SE;0988818967;stefani.naranjo@derechoshumanos.gob.ec
+64;39;7;Yomaira Katerine;Sarango Castillo;1900709732;Psicóloga Clínica;Calle Corrientes Y Pergamino-Loja;SA;SE;0967148781;yomaira.sarango@derechoshumanos.gob.ec
+65;39;7;Tania Susana;Villa Illescas;1900442128;Trabajadora Social;Calles Rio Cenepa Y Amazonas. Frente A La Unidad Del Milenio- Parroquia Guayzimi-Zamora Ch.;SA;SE;0985127590;tania.villa@derechoshumanos.gob.ec
+66;38;7;Jackeline Del Rocìo;Cabrera Yanza;1103667471;Trabajadora Social;Av. 8 De Diciembre Y Santiago, Las Pitas-Loja;SA;SE;0967143707;jackeline.cabrera@derechoshumanos.gob.ec
+67;38;7;Claudia Pamela;Valarezo Borrero;1103859128;Psicóloga Clínica;Calle Segundo Cueva Celi Y Clodoveo Carrion #93-21-Loja;SA;SE;0998338856;claudia.valarezo@derechoshumanos.gob.e
+68;40;8;Veronica Evelyn;Utrera Zambrano;0907597801;SE;Sauces V, Mz.254 Villa 7;SA;SE;0998337975;SIN CORREO
+69;40;8;María Del Carmen;Lainez Malave;0918171174;SE;Coop. Lomas De La Florida, Mz.1009, Solar 20;SA;SE;0994298883;SIN CORREO
+70;40;8;Rosa Emperatriz;Rosales Ortega;0905757688;SE;Samanes 4, Mz. 404 Villa 16 (Entrando Por Portón De Samanes 5);SA;SE;0969773669;SIN CORREO
+71;40;8;Carlota Monica;Del Rosario Villasagua;0908875743;SE;Ciudadela Abel Gilbert 3, Mz. B17 Villa 3, Durán;SA;SE;0996659357;SIN CORREO
+72;40;8;Sara Lorena;Groenow Vera;0907114060;Psicóloga Clínica;Ciudadela Guayacanes, Mz. 98 Villa 18, Atrás Del Colegio Albohispano;SA;SE;0994042425;sara.groenow@derechoshumanos.gob.ec
+73;43;9;Zoila De Los Angeles;Peralta Molina;1710997279;Trabajadora Social;Barrio Buenos Aires Calle Maria Barreto, Calle A Y C, Lote 62, Auqui De Monjas, Barrio Alma Lojana;SA;SE;0983098878;zoila.peralta@derechoshumanos.gob.ec
+74;43;9;Jomayra Alexandra;Alencastro Jiménez;1716531163;Trabajadora Social;San Antonio De Pichincha, Av. Manuel Cordova Galarza Y Av. Ecuatorial, Conjunto Villa Ndina Casa 83;SA;SE;0985365672;jomayra.alencastro@derechoshumanos.gob.ec
+75;43;9;Abigail Del Rocio;Rodriguez Serrano;1713855458;Psicóloga Clínica;Av. Real Audiencia N73-54 Y Pasaje N73. Edificio Troya, Dpto. 7. Ponciano Alto;SA;SE;0987031695;abigail.rodriguez@derechoshumanos.gob.ec
+76;44;9;Lina Rocío;Vargas Jácome;1709528861;Psicóloga Clínica;Leonidaz Proaño N5-67y San Jose , Carapungo;SA;SE;0998035216;lina.vargas@derechoshumanos.gob.ec
+77;44;9;Gina Silvana;Burbano Enríquez;1707242606;Psicóloga Clínica;Hermandad S11-423 Y Luis Chiriboga, El Recreo Sur De Quito;SA;SE;0984559298;gina.burbano@derechoshumanos.gob.ec
+78;44;9;Teresa Noemí;Madruñero;1707563886;Trabajadora Social;Conocoto, Barrio San Miguel, Calle Jose Maria Urbina S14-168;SA;SE;0987880384;teresa.madrunero@derechoshumanos.gob.ec
+79;44;9;Nely Alexandra;Durán Mantilla;1706921630;Trabajadora Social;Isla Seymour N44-256 Y Guepi Conjunto Felicidad Casa No. 8,- Jipijapa;SA;SE;0984957536;nely.duran@derechoshumanos.gob.ec
+80;45;9;Mary Isabel;Puetate Villacís;1712600731;Trabajadora Social;Parroquia De Amaguaña, Calle Benjamín Carrión Y Ricardo Alvarez, Frente A Coliseo Gabriel Vallejo;SA;SE;0995450370;mary.puetate@derechoshumanos.gob.ec
+81;45;9;Juan Oswaldo;Chinchin Tacuri;1707634109;Psicólogo Clínico;Huaynapalcon Oe-8335 , La Magadalena Cerca A Colegio Mosdesto Paredes;SA;SE;0984825836;juan.chinchin@derechoshumanos.gob.ec
+82;45;9;Paola Cristina;Yupangui Ontaneda;1725747479;Trabajadora Social;Av.Leonidas Dubles  Y E 5c, Guamaní, Caupicho;SA;SE;0995989127;paola.yupangui@derechoshumanos.gob.ec
+83;45;9;Edison David;Vilaña Tito;1716300163;Psicólogo Clínico;Antonio Elizalde Y Princesa Toa, Sector Conocoto, Escuela General Numacuro, Comuna Chachas;SA;SE;0996715688;edison.vilana@derechoshumanos.gob.ec

@@ -1,0 +1,28 @@
+1;Baño;1;\N
+2;Cuadro misión-visión;1;\N
+3;Iluminación eléctrica;1;\N
+4;Iluminación natural;1;\N
+5;Limpieza;1;\N
+6;Rótulo;1;\N
+7;Seguridad;1;\N
+8;Servicios básicos;1;\N
+9;Ventilación natural;1;\N
+10;Vigilancia;1;\N
+11;Anaqueles;2;\N
+12;Archivadores;2;\N
+13;Estación de trabajo;2;\N
+14;Estanterías;2;\N
+15;Papelera;2;\N
+16;Sillas de visita;2;\N
+17;Sillas giratorias;2;\N
+18;Ventiladores;2;\N
+19;Computadoras;3;\N
+20;Impresoras;3;\N
+21;Teléfono;3;\N
+22;Banner;4;\N
+23;Chompa;4;\N
+24;Pizarra;4;\N
+25;Vehículo;5;\N
+26;Moto;5;\N
+27;Coordinación de movilidad;5;\N
+28;Internet;6;\N

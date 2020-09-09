@@ -1,0 +1,6 @@
+1;Instalaciones;\N
+2;Bienes;\N
+3;Equipos;\N
+4;Otros;\N
+5;Movilidad;\N
+6;Conectividad;\N

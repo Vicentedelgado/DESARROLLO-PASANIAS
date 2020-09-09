@@ -1,0 +1,243 @@
+
+create database SPI_DATA;
+use SPI_DATA;
+go;
+
+*==============================================================*/
+/* Table: ACTIVO                                                */
+/*==============================================================*/
+create table ACTIVO (
+   IDACTIVO             SERIAL                not null,
+   NOMBRE               VARCHAR(100)          not null,
+   IDTIPO               INT4                  not null,
+   DESCRIPCION          TEXT                 null,
+   constraint PK_ACTIVO primary key (IDACTIVO)
+);
+
+/*==============================================================*/
+/* Index: ACTIVO_PK                                             */
+/*==============================================================*/
+create unique index ACTIVO_PK on ACTIVO (
+IDACTIVO
+);
+
+/*==============================================================*/
+/* Index: TIPO_FK                                               */
+/*==============================================================*/
+create  index TIPO_FK on ACTIVO (
+IDTIPO
+);
+
+/*==============================================================*/
+/* Table: INSTITUCION                                           */
+/*==============================================================*/
+create table INSTITUCION (
+   IDINSTITUCION        SERIAL                not null,
+   NOMBRE               VARCHAR(60)           not null,
+   constraint PK_INSTITUCION primary key (IDINSTITUCION)
+);
+
+/*==============================================================*/
+/* Index: INSTITUCION_PK                                        */
+/*==============================================================*/
+create unique index INSTITUCION_PK on INSTITUCION (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Table: REGISTRO_DEL_SPI                                      */
+/*==============================================================*/
+create table REGISTRO_DEL_SPI (
+   IDREGISTRO           SERIAL               not null,
+   IDACTIVO             INT4                 not null,
+   IDSPI                INT4                 not null,
+   IDINSTITUCION        INT4                 not null,
+   ESTADO               VARCHAR(10)          not null,
+   CANTIDAD             NUMERIC(4)           not null,
+   CANTIDADREQUERIDA    NUMERIC(4)           not null,
+   HOLGURADECANTIDAD    NUMERIC(4)           not null,
+   PRIORIDAD            VARCHAR(10)          not null,
+   ACCIONREALIZADA      VARCHAR(200)         not null,
+   PERIODO              VARCHAR(15)          not null,
+   FECHAACCION          DATE                 not null,
+   constraint PK_REGISTRO_DEL_SPI primary key (IDREGISTRO)
+);
+
+/*==============================================================*/
+/* Index: REGISTRO_DEL_SPI_PK                                   */
+/*==============================================================*/
+create unique index REGISTRO_DEL_SPI_PK on REGISTRO_DEL_SPI (
+IDREGISTRO
+);
+
+/*==============================================================*/
+/* Index: ACTIVO_FK                                             */
+/*==============================================================*/
+create  index ACTIVO_FK on REGISTRO_DEL_SPI (
+IDACTIVO
+);
+
+/*==============================================================*/
+/* Index: PERTENENCIA2_FK                                       */
+/*==============================================================*/
+create  index PERTENENCIA2_FK on REGISTRO_DEL_SPI (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Index: REGISTRO_FK                                           */
+/*==============================================================*/
+create  index REGISTRO_FK on REGISTRO_DEL_SPI (
+IDSPI
+);
+
+/*==============================================================*/
+/* Table: RRHH                                                  */
+/*==============================================================*/
+create table RRHH (
+   IDUSUARIO            SERIAL               not null,
+   IDSPI                INT4                 not null,
+   IDZONA               INT4                 not null,
+   NOMBRES              VARCHAR(60)          not null,
+   APELLIDOS            VARCHAR(60)          not null,
+   CEDULA               VARCHAR(14)          not null,
+   CARGO                VARCHAR(30)          not null,
+   DIRECCION            VARCHAR(300)         not null,
+   UNIDAD               VARCHAR(100)         null,
+   ESTADO               VARCHAR(15)          not null,
+   TELEFONO             VARCHAR(15)          not null,
+   EMAIL                VARCHAR(50)          null,
+   constraint PK_RRHH primary key (IDUSUARIO)
+);
+
+/*==============================================================*/
+/* Index: RRHH_PK                                               */
+/*==============================================================*/
+create unique index RRHH_PK on RRHH (
+IDUSUARIO
+);
+
+/*==============================================================*/
+/* Index: USUARIO_FK                                            */
+/*==============================================================*/
+create  index USUARIO_FK on RRHH (
+IDSPI
+);
+
+/*==============================================================*/
+/* Index: RRHH_FK                                               */
+/*==============================================================*/
+create  index RRHH_FK on RRHH (
+IDZONA
+);
+
+/*==============================================================*/
+/* Table: SPI_DATOS                                             */
+/*==============================================================*/
+create table SPI_DATOS (
+   IDSPI                SERIAL               not null,
+   IDZONA               INT4                 not null,
+   IDINSTITUCION        INT4                 not null,
+   NOMBRE               VARCHAR(60)          not null,
+   DIRECCION            VARCHAR(500)         not null,
+   TELEFONO             VARCHAR(15)          not null,
+   NUMERODEOFICINA      VARCHAR(4)           null,
+   CONVENIO             VARCHAR(4)           null,
+   DASERVICIOA          VARCHAR(800)         not null,
+   OBSERVACIONES        VARCHAR(500)         not null,
+   constraint PK_SPI_DATOS primary key (IDSPI)
+);
+
+/*==============================================================*/
+/* Index: SPI_DATOS_PK                                          */
+/*==============================================================*/
+create unique index SPI_DATOS_PK on SPI_DATOS (
+IDSPI
+);
+
+/*==============================================================*/
+/* Index: PERTENENCIA_FK                                        */
+/*==============================================================*/
+create  index PERTENENCIA_FK on SPI_DATOS (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Index: ZONA_FK                                               */
+/*==============================================================*/
+create  index ZONA_FK on SPI_DATOS (
+IDZONA
+);
+
+/*==============================================================*/
+/* Table: TIPO                                                  */
+/*==============================================================*/
+create table TIPO (
+   IDTIPO               SERIAL               not null,
+   NOMBRE               VARCHAR(60)          not null,
+   DESCRIPCION          VARCHAR(100)         null,
+   constraint PK_TIPO primary key (IDTIPO)
+);
+
+/*==============================================================*/
+/* Index: TIPO_PK                                               */
+/*==============================================================*/
+create unique index TIPO_PK on TIPO (
+IDTIPO
+);
+
+/*==============================================================*/
+/* Table: ZONA                                                  */
+/*==============================================================*/
+create table ZONA (
+   IDZONA               SERIAL                 not null,
+   NOMBRE               VARCHAR(10)          not null,
+   constraint PK_ZONA primary key (IDZONA)
+);
+
+/*==============================================================*/
+/* Index: ZONA_PK                                               */
+/*==============================================================*/
+create unique index ZONA_PK on ZONA (
+IDZONA
+);
+
+alter table ACTIVO
+   add constraint FK_ACTIVO_TIPO_TIPO foreign key (IDTIPO)
+      references TIPO (IDTIPO)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_ACTIVO_ACTIVO foreign key (IDACTIVO)
+      references ACTIVO (IDACTIVO)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_PERTENENC_INSTITUC foreign key (IDINSTITUCION)
+      references INSTITUCION (IDINSTITUCION)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_REGISTRO_SPI_DATO foreign key (IDSPI)
+      references SPI_DATOS (IDSPI)
+      on delete restrict on update restrict;
+
+alter table RRHH
+   add constraint FK_RRHH_RRHH_ZONA foreign key (IDZONA)
+      references ZONA (IDZONA)
+      on delete restrict on update restrict;
+
+alter table RRHH
+   add constraint FK_RRHH_USUARIO_SPI_DATO foreign key (IDSPI)
+      references SPI_DATOS (IDSPI)
+      on delete restrict on update restrict;
+
+alter table SPI_DATOS
+   add constraint FK_SPI_DATO_PERTENENC_INSTITUC foreign key (IDINSTITUCION)
+      references INSTITUCION (IDINSTITUCION)
+      on delete restrict on update restrict;
+
+alter table SPI_DATOS
+   add constraint FK_SPI_DATO_ZONA_ZONA foreign key (IDZONA)
+      references ZONA (IDZONA)
+      on delete restrict on update restrict;
