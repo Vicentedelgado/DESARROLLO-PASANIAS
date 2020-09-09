@@ -8,6 +8,7 @@
 	<header th:replace="plantilla/templatehome :: header"></header>
 	<main class="main">
 	<div class="container">
+		
 		<br> <br>
 
 		<div class="row">
@@ -24,7 +25,7 @@
 				<div class="card border-info shadow-lg">
 					<div class="card-header mb-1" ><h3>Filtrar Información</h3></div>
 					<div class="card-body ">
-						<h4 class="card-title">Spi</h4>
+						<h4 class="card-title">SPI</h4>
 						<form th:action="@{/home}" method="post" id="appointmentForm">
 							<div class="form-group">
 								<label for="spiporzona">Zona:</label>
@@ -38,17 +39,15 @@
 							</form>
 							<form th:action="@{/home/Elegirspi}" method="post" id="appointmentForm">						
 							<div class="form-group">
-								<label for="spiporzona">Spi:</label> 
+								<label for="spiporzona">SPI:</label> 
 								<select class="form-control form-control-sm col-md-8 shadow"  name="idspi" id="idspi" required="required">
-									<option disabled="disabled" selected="selected" > -- Elija un spi --</option>
+									<option disabled="disabled" selected="selected" > -- Elija SPI --</option>
 								</select>
-								<button id=miboton>prueba</button> 
-								<input type="hidden" name="valor1" size="40" value="Aquí saldrá el valor del select cuando cambie">
-								<input type="hidden" name="valor2" size="40" id="valor2" value="Aquí saldrá el valor del select cuando cambie">
 							</div>
 							</form>
-                            <a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/Formulario/listaporspi/}+ 1">Filtrar</a>
-							<a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/RegistroDelSpi/}">Ingresar sin Filtrar</a>
+							<input type="hidden" id="baseURL" th:value="@{/views/Formulario/listaporspi/}">
+                            <a id="filtrar" class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/Formulario/listaporspi/}" title="Filtra información de un SPI">Filtrar</a>
+							<a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/RegistroDelSpi/}" title="Ingresa a la información general de los SPI">Ingresar sin Filtrar</a>
 					</div>
 				</div>
 								

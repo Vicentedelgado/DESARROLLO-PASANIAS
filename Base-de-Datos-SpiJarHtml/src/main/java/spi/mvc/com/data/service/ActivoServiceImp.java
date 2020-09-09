@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import spi.mvc.com.data.model.Activo;
+import spi.mvc.com.data.model.Tipo;
 import spi.mvc.com.data.repository.ActivoRepository;
 
 @Service
+@Transactional
 public class ActivoServiceImp implements IActivoService {
 	
 	@Autowired
@@ -38,4 +41,12 @@ public class ActivoServiceImp implements IActivoService {
 
 	}
 
+	@Override
+	public List<Activo> Buscarportipo(Tipo idtipo) {
+		// TODO Auto-generated method stub
+		return ActivoRepository.Buscarportipo(idtipo);
+	}
+	
+
+	
 }

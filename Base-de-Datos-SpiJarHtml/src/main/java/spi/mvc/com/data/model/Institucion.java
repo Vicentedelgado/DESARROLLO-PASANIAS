@@ -22,6 +22,7 @@ public class Institucion implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idinstitucion;
 	private String nombre;
+	
 	public Long getIdinstitucion() {
 		return idinstitucion;
 	}

@@ -13,14 +13,14 @@
 	<br>
 	<div class="container">
 		<div class="row">
-			<div class="col-5">
+			<div class="col-md-6">
 				<!-- DATOS GENERALES -->
-				<div class="card border-info mb-3" style="max-width: 30rem;">
+				<div class="card border-info mb-3" style="max-width: 40rem;">
 					<div class="card-header" th:text="${titulo1}" align="center"></div>
 					<div class="card-body text-info">
 						<!-- TABLA DE DATOS -->
-						<div class="table-responsive-lg">
-							<table class="table">
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover" id="tablaidspi">
 								<tbody class="tbody">
 									<tr th:each="item:${listaspi1}">
 										<th>SPI:</th>
@@ -35,15 +35,19 @@
 										<td th:text="${item.idinstitucion.nombre}"></td>
 									</tr>
 									<tr th:each="item:${listaspi1}">
-										<th scope="row">Número de Teléfo:</th>
+										<th scope="row">Número de teléfono:</th>
 										<td th:text="${item.telefono}"></td>
 									</tr>
 									<tr th:each="item:${listaspi1}">
-										<th scope="row">Número de Oficina:</th>
+										<th scope="row">Número de oficina:</th>
 										<td th:text="${item.numerodeoficina}"></td>
 									</tr>
 									<tr th:each="item:${listaspi1}">
-										<th scope="row">Da Servicio a:</th>
+										<th scope="row">Convenio:</th>
+										<td th:text="${item.convenio}"></td>
+									</tr>
+									<tr th:each="item:${listaspi1}">
+										<th scope="row">Da servicio a:</th>
 										<td th:text="${item.daservicioa}"></td>
 									</tr>
 								</tbody>
@@ -53,65 +57,70 @@
 				</div>
 			</div>
 			<!-- BUSQUEDA -->
-			<div class="col-6">
-			<div class="foto">
-				<div class="row">
-					<div class="col-3">
-						<img class="imagenformulario" th:src="@{/images/logo.png}" />
-					</div>
-					<div class="col-3">
-					    <h3 class="Logoletra">SDH</h3>
-					</div>
-				</div>
-			</div>
-			<hr class="hr2">
-				<div class="card border-info mb-3" style="max-width: 30rem;">
+			<div class="col-md-6">
+				<img class="formularioimagen" th:src="@{/images/sdh.png}" />
+				<div class="card border-info mb-3" style="max-width: 40rem;">
 					<div class="card-header" th:text="${titulo8}" align="center"></div>
 					<div class="card-body">
 						<!-- BUSQUEDA-->
 						<h4 class="card-title">Filtrar</h4>
-						<form th:action="@{/views/Formulario/listaporspi}" method="post" id="appointmentForm">
-							<div class="form-group">
-								<label for="spiporzonaformulario">Zona:</label>
-								<select class="form-control form-control-sm col-md-8 shadow" required="required" 
-										th:value="${zona.idzona}" name="spiporzonaformulario" id="spiporzonaformulario">
-										<option disabled="disabled" selected="selected" > -- Elija una zona--</option>
-									    <option th:each="zona:${listazona}" th:value="${zona.idzona}"
-										th:text="${zona.nombre}"></option>
-								</select>
+						<div class="row">
+								<div class="col-xs-4">
+									<form th:action="@{/views/Formulario/listaporspi}"
+										method="post" id="appointmentForm">
+										<div class="form-group">
+											<label for="spiporzonaformulario">Zona:</label> <select
+												class="form-control form-control-sm col-md-8 shadow"
+												required="required" th:value="${zona.idzona}"
+												name="spiporzonaformulario" id="spiporzonaformulario">
+												<option disabled="disabled" selected="selected">
+													-- Elija una zona --</option>
+												<option th:each="zona:${listazona}"
+													th:value="${zona.idzona}" th:text="${zona.nombre}"></option>
+											</select>
+										</div>
+									</form>
+								</div>
+								<div class="col-xs-4">
+									<form th:action="@{/views/Formulario/Elegirspi}" method="post"
+										id="appointmentForm">
+										<div class="form-group">
+											<label for="spiporzonaformulario">SPI:</label> <select
+												class="form-control form-control-sm col-md-8 shadow"
+												name="idspi" id="idspi" required="required">
+												<option disabled="disabled" selected="selected">-- Elija SPI --</option>
+											</select>
+										</div>
+									</form>
+								</div>
+								<div class="col-xs-4">
+									<input type="hidden" id="baseURL" th:value="@{/views/Formulario/listaporspi/}">
+									<a id="filtrar" class="btn btn-info  btn-sm rounded-pill shadow" th:href="@{/views/Formulario/listaporspi/}" title="Filtra información de un SPI">Filtrar</a>
+								</div>
 							</div>
-							</form>
-							<form th:action="@{/views/Formulario/Elegirspi}" method="post" id="appointmentForm">						
-							<div class="form-group">
-								<label for="spiporzonaformulario">Spi:</label> 
-								<select class="form-control form-control-sm col-md-8 shadow" name="idspi" id="idspi" required="required">
-									<option disabled="disabled" selected="selected" > -- Elija un spi --</option>
-								</select> 
-							</div>
-							</form>
-							<a class="btn btn-info  btn-sm rounded-pill" th:href="@{/views/Formulario/listaporspi/}+ 3">Filtrar</a> 
+							<h4 class="card-title">Complementos</h4>
+				    		<div class="container" th:each="item:${listaspi1}">
+				    			<a href="@{}" data-toggle="modal" data-target="#saveModal" title="Nuevo registro de bien" target="black">
+									<svg width="2.3em" height="2.3em" viewBox="0 0 16 16" class="bi bi-file-plus-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									  	<path fill-rule="evenodd" d="M12 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
+									</svg>
+								</a>
+								<a id="pdf" th:href="@{'/views/Formulario/listaporspi/'+ ${item.idspi} + '/?format=pdf'}" title="Exportar a Pdf e imprimir" target="black">
+								 <svg width="2.3em" height="2.3em" viewBox="0 0 16 16" class="bi bi-file-earmark-text-fill text-danger" fill="currentColor">
+								  	<path fill-rule="evenodd" d="M2 3a2 2 0 0 1 2-2h5.293a1 1 0 0 1 .707.293L13.707 5a1 1 0 0 1 .293.707V13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3zm7 2V2l4 4h-3a1 1 0 0 1-1-1zM4.5 8a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
+								</svg>
+								</a> 
+								<a id="excel" th:href="@{'/views/Formulario/listaporspi/'+ ${item.idspi} + '/?format=xlsx'}" title="Generar archivo excel">
+								 <svg width="2.3em" height="2.3em" viewBox="0 0 16 16" class="bi bi-file-earmark-spreadsheet-fill text-success" fill="currentColor">
+								  	<path fill-rule="evenodd" d="M2 3a2 2 0 0 1 2-2h5.293a1 1 0 0 1 .707.293L13.707 5a1 1 0 0 1 .293.707V13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3zm7 2V2l4 4h-3a1 1 0 0 1-1-1zM3 8v1h2v2H3v1h2v2h1v-2h3v2h1v-2h3v-1h-3V9h3V8H3zm3 3V9h3v2H6z" />
+								</svg>
+								</a>
+							</div>	
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- BOTONES -->
-		<div class="row">
-			<div class="col-6">
-				<div class="btn-group shadow" role="group" aria-label="Basic example">
-					<a type="button" class="btn btn-info text-white shadow" th:text="'Nuevo Registro'" title="Crear Nuevo Registro" th:href="@{/views/RegistroDelSpi/create}" ></a>
-					<a type="button" class="btn btn-info text-white shadow" th:text="'Ver Datos Spi'" title="Ver Datos Spis" th:href="@{/views/SpiDatos/}"></a>
-					<a type="button" class="btn btn-info text-white shadow" th:text="'Ver Registros de Spis'" title="Ver Registros de Spis" th:href="@{/views/RegistroDelSpi/}"></a>
-					<a type="button" class="btn btn-info text-white shadow" th:text="'Ver Registros RRHH de Spis'" title="Ver Registros RRHH de Spis" th:href="@{/views/RRHH/}"></a>
-	    		</div>
-			</div>
-			<div class="col-6">
-				<div class="botonguardar">
-				   <input type="submit"class="btn btn-success text-white shadow"
-				          value="Guardar cambios" />
-				</div>
-		   </div>
-		</div>   
-	</div><br>
+	</div>
 	
 	<div class="container">	
 		<!-- RECURSO HUMANO -->
@@ -119,14 +128,14 @@
 			<div class="card-header" th:text="${titulo2}" align="center"></div>
 			<div class="card-body text-info">
 				<!-- TABLA DE DATOS -->
-				<div class="table-responsive-lg">
-					<table class="table table-bordered">
+				<div class="table-responsive">
+					<table id="" class="display table table-hover">
 						<thead class="table-primary">
 							<tr>
 								<th scope="row">Nombres</th>
 								<th scope="row">Apellidos</th>
-								<th scope="row">N Telefónico</th>
-								<th scope="row">Correo Electrónico</th>
+								<th scope="row">Teléfonos</th>
+								<th scope="row">Correo electrónico</th>
 								<th scope="row">Dirección</th>
 								<th scope="row">Estado</th>
 							</tr>
@@ -138,8 +147,7 @@
 								<td th:text="${item.telefono}"></td>
 								<td th:text="${item.email}"></td>
 								<td th:text="${item.direccion}"></td>
-								<td th:text="${item.estado}"></td>
-								
+								<td th:text="${item.estado}"></td>	
 							</tr>
 						</tbody>
 					</table>
@@ -152,45 +160,47 @@
 			<div class="card-header" th:text="${titulo3}" align="center"></div>
 			<div class="card-body text-info">
 				<!--FORMULARIO INSTALACIONES -->
-				<div class="table-responsive-lg">
-					<form th:action="@{/views/Formulario/save}"
-						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+				<div class="table-responsive">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">INSTALACIONES</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
 							</thead>
 							<tbody class="tbody">
 								<tr th:each="item:${listaregistrodelspiinstalaciones}">
-									<td class="ocultarcolunma" th:text="${item.idregistro}"></td>
-									<th th:contenteditable='false'scope="row" th:text="${item.idactivo.nombre}"></th>
-									<td  class="celdaeditar" th:contenteditable='true' th:text="${item.cantidad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.estado}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.prioridad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
-									<td class="ocultarcolunma" th:contenteditable='false'scope="row" th:text="${item.idinstitucion}"></td>
-									<td class="ocultarcolunma" th:contenteditable='false'scope="row" th:text="${item.periodo}"></td>
+									<th class="ocultarcolunma" th:text="${item.idregistro}"></th>
+									<th scope="row" th:text="${item.idactivo.nombre}"></th>
+									<td class="celdaeditar"  th:text="${item.cantidad}"></td>
+									<td class="celdaeditar"  th:text="${item.estado}"></td>
+									<td class="celdaeditar"  th:text="${item.prioridad}"></td>
+									<td class="celdaeditar"  th:text="${item.cantidadrequerida}"></td>
+									<td class="celdaeditar"  th:text="${item.holguradecantidad}"></td>
+									<td class="celdaeditar"  th:text="${item.accionrealizada}"></td>
+									<td class="celdaeditar"  th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	
 									</td>
 								</tr>
 							</tbody>
 						</table>
-					</form>
+					
 				</div>
 				<!--FORMULARIO INSTRUMENTOS  -->
 				
@@ -202,19 +212,20 @@
 			<div class="card-header" th:text="${titulo4}" align="center"></div>
 			<div class="card-body text-info">
 			<!--FORMULARIO BIENES -->
-			<div class="table-responsive-lg">
+			<div class="table-responsive">
 					<form th:action="@{/views/Formulario/save}"
 						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">BIENES</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
@@ -223,37 +234,44 @@
 								<tr th:each="item:${listaregistrodelspibienes}">
 									<td class="ocultarcolunma" th:text="${item.idregistro}"></td>
 									<th scope="row" th:text="${item.idactivo.nombre}"></th>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.estado}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.prioridad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
+									<td class="celdaeditar" th:text="${item.cantidad}"></td>
+									<td class="celdaeditar" th:text="${item.estado}"></td>
+									<td class="celdaeditar" th:text="${item.prioridad}"></td>
+									<td class="celdaeditar" th:text="${item.cantidadrequerida}"></td>
+									<td class="celdaeditar" th:text="${item.holguradecantidad}"></td>
+									<td class="celdaeditar" th:text="${item.accionrealizada}"></td>
+									<td class="celdaeditar" th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</form>
 				</div>
+				<hr class="hr2">
 			<!--FORMULARIO EQUIPOS -->
-			<div class="table-responsive-lg">
+			<div class="table-responsive">
 					<form th:action="@{/views/Formulario/save}"
 						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">EQUIPOS</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
@@ -268,35 +286,38 @@
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
+									<td class="celdaeditar" th:contenteditable='true' th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
-										<a
-										class="btn btn-info btn-sm rounded-pill shadow"
-										th:href="@{/views/RegistroDelSpi/editar/} + ${item.idregistro}"
-										th:text="'Editar 2'" title="Editar 2"></a>
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	 
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</form>
-				</div>		
+				</div>
+				<hr class="hr2">		
 			<!--FORMULARIO OTROS -->
-			<div class="table-responsive-lg">
+			<div class="table-responsive">
 					<form th:action="@{/views/Formulario/save}"
 						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">OTROS</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
@@ -311,31 +332,38 @@
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
+									<td class="celdaeditar" th:contenteditable='true' th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	 
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</form>
 				</div>
+				<hr class="hr2">
 			<!--FORMULARIO MOVILIDAD -->
-			<div class="table-responsive-lg">
+			<div class="table-responsive">
 					<form th:action="@{/views/Formulario/save}"
 						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">MOVILIDAD</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
@@ -350,11 +378,16 @@
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
+									<td class="celdaeditar" th:contenteditable='true' th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	
 									</td>
 								</tr>
 							</tbody>
@@ -368,19 +401,20 @@
 			<div class="card-header" th:text="${titulo5}" align="center"></div>
 			<div class="card-body text-info">
 				<!-- FORMULARIO DESCRIPCION -->
-				<div class="table-responsive-lg">
+				<div class="table-responsive">
 					<form th:action="@{/views/Formulario/save}"
 						th:object=${registrodelspi} method="post">
-						<table class="table table-bordered table-hover">
+						<table id="" class="display table table-hover">
 							<thead class="thead table-primary">
 								<tr>
+									<th scope="col" class="ocultarcolunma"> #id</th>
 									<th scope="col" class="tiposactivos">CONECTIVIDAD</th>
 									<th scope="col">Cantidad</th>
 									<th scope="col">Estado</th>
 									<th scope="col">Prioridad</th>
 									<th scope="col">Cantidad Requerida</th>
 									<th scope="col">Faltante</th>
-									<th scope="col">Avances (Accción)</th>
+									<th scope="col">Avances (Acción)</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">EDITAR</th>
 								</tr>
@@ -395,11 +429,16 @@
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.cantidadrequerida}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.holguradecantidad}"></td>
 									<td class="celdaeditar" th:contenteditable='true' th:text="${item.accionrealizada}"></td>
-									<td class="celdaeditar" th:contenteditable='true' th:text="${item.fechaaccion}"></td>
+									<td class="celdaeditar" th:contenteditable='true' th:text="${#dates.format(item.fechaaccion, 'dd/MM/yyyy')}"></td>
 									<td>
-										<a th:href="@{edit/(idregistro=${item.idregistro})}"
-										class="btn btn-info btn-sm rounded-pill editModal shadow"
-										th:text="'Editar'" title="Editar"></a> 
+										<div align="center">
+											<a th:href="@{edit/(idregistro=${item.idregistro})}" class="editModal2" title="Editar" target="black">
+												<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+													<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+												</svg>
+											</a> 
+										</div>	 
 									</td>
 									
 								</tr>
@@ -413,8 +452,8 @@
 		<div class="card border-info mb-3" style="max-width: 100rem;">
 			<div class="card-header" th:text="${titulo6}" align="center"></div>
 			<div class="card-body text-info">
-				<div class="table-responsive-sm">
-					<table class="table table-bordered table-hover">
+				<div class="table-responsive">
+					<table id="" class="display table table-hover">
 						<thead class="thead table-primary">
 							<tr>
 								<th scope="col">#</th>
@@ -425,24 +464,30 @@
 						</thead>
 						<tbody>
 							<tr>
+								<th scope="col">1</th>
+								<th scope="col">2</th>
+								<th scope="col">3</th>
+								<th scope="col">4</th>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container">
 		<!-- MODAL DE VENTANA  FORMULARIO EDITAR -->
 			<div class="editar">
-				<form th:action="@{/views/Formulario/save}"
+				<form th:action="@{/views/Formulario/listaporspi/save}"
 					th:object=${registrodelspi} method="post">
-					<div class="modal fade" id="editarModal" tabindex="-1"
+					<div class="modal fade" id="editarModal2" tabindex="-1"
 						role="dialog" aria-labelledby="exampleModalLabel"
 						aria-hidden="true">
-						<div class="modal-dialog modal-lg">
+						<div class="modal-dialog modal-md">
 							<div class="modal-content">
 								<div class="modal-header bg-info  text-white">
-									<h5 class="modal-title" th:text="${titulo2}"
-										id="exampleModalLabel"></h5>
+									<img class="imagenlogo" th:src="@{/images/sdh.png}" />
+									<h5 class="modal-title" th:text="${titulo9}" id="exampleModalLabel"></h5>
 									<button type="button" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
@@ -451,105 +496,75 @@
 								<div class="modal-body">
 									<!-- FORMULARIO MODAL-->
 									<div class="form-group row">
-										<input type="hidden" th:field="*{idregistro}"> <label
-											class="col-md-2" for="idactivo">Bien:</label> <select
-											th:field="*{idactivo}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="idactivo">
-											<option th:each="activo:${listaactivo}"
-												th:value="${activo.idactivo}" th:text="${activo.nombre}">
-											</option>
-										</select>
+										<input type="hidden" th:field="*{idregistro}"> 
+										<label class="col-md-4" for="idactivo">Bien:</label> 
+										<label class="text-primary" id="idactivonombre" ></label>
+										<input type="hidden" th:field="*{idactivo}" id="idactivo" class="form-control form-control-sm col-md-7 shadow">
+									</div>
+									<div th:each="item:${listaspi1}">
+										<input type="hidden" id="spi3" th:value="${item.idspi}">
+										<!-- <label class="col-md-4" for="spi3">Spi:</label>  -->
+										<input type="hidden" th:field="*{idspi}" id="spi2" class="form-control form-control-sm col-md-7 shadow">
+									</div>
+									<div th:each="item:${listaspi1}">
+										<input type="hidden" id="idinstitucion4" th:value="${item.idinstitucion.idinstitucion}">
+										<!-- <label class="col-md-4" for="idinstitucion4">Pertenencia del Bien:</label> --> 
+										<input type="hidden" th:field="*{idinstitucion}" id="idinstitucion3" class="form-control form-control-sm col-md-7 shadow">
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="idspi">Spi:</label> <select
-											th:field="*{idspi}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="idspi">
-											<option th:each="spi:${listaspi}" th:value="${spi.idspi}"
-												th:text="${spi.nombre}"></option>
-										</select>
+										<label class="col-md-4" for="cantidad">Cantidad:</label> 
+										<input type="text" th:field="*{cantidad}" class="form-control form-control-sm col-md-7 shadow" id="cantidad"
+											placeholder="Ingrese la cantidad actual del bien"> 
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></small>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="idinstitucion">Pertenencia
-											del Bien:</label> <select th:field="*{idinstitucion}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="idinstitucion">
-											<option th:each="institucion:${listainstitucion}"
-												th:value="${institucion.idinstitucion}"
-												th:text="${institucion.nombre}"></option>
-										</select>
-									</div>
-									<div class="form-group row">
-										<label class="col-md-2" for="estado">Estado del Bien:</label>
-										<select th:field="*{estado}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="estado">
+										<label class="col-md-4" for="estado">Estado del bien:</label>
+										<select th:field="*{estado}" class="form-control form-control-sm col-md-7 shadow" id="estado">
 											<option th:value="Bueno" th:text="Bueno"></option>
 											<option th:value="Regular" th:text="Regular"></option>
 											<option th:value="Malo" th:text="Malo"></option>
 										</select>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="cantidad">Cantidad:</label> <input
-											type="text" th:field="*{cantidad}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="cantidad"
-											placeholder="Ingrese la cantidad actual del bien"> <small></small>
-									</div>
-									<div class="form-group row">
-										<label class="col-md-2" for="cantidadrequerida">Cantidad
-											Requerida:</label> <input type="text" th:field="*{cantidadrequerida}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="cantidadrequerida"
-											placeholder="Ingrese la cantidad requeridad del bien">
-										<small></small>
-									</div>
-									<div class="form-group row">
-										<label class="col-md-2" for="holguradecantidad">Cantidad
-											Faltante del Bien:</label> <input type="text"
-											th:field="*{holguradecantidad}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="holguradecantidad"
-											placeholder="Ingrese el desfaz de la cantidad requerida">
-										<small></small>
-									</div>
-									<div class="form-group row">
-										<label class="col-md-2" for="prioridad">Prioridad:</label> <select
-											th:field="*{prioridad}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="prioridad">
+										<label class="col-md-4" for="prioridad">Prioridad:</label> 
+										<select th:field="*{prioridad}" class="form-control form-control-sm col-md-7 shadow" id="prioridad">
 											<option th:value="Baja" th:text="Baja"></option>
 											<option th:value="Media" th:text="Media"></option>
 											<option th:value="Alta" th:text="Alta"></option>
 										</select>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="accionrealizada">Acción
-											Realizada:</label> <input type="text" th:field="*{accionrealizada}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="accionrealizada"
-											placeholder="Acción tomada sobre el bien"> <small></small>
+										<label class="col-md-4" for="cantidadrequerida">Cantidad requerida:</label> 
+										<input type="text" th:field="*{cantidadrequerida}" class="form-control form-control-sm col-md-7 shadow" id="cantidadrequerida"
+											placeholder="Ingrese la cantidad requerida del bien">
+										    <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidadrequerida')}" th:errors="*{cantidadrequerida}"></small>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="periodo">Periodo:</label> <input
-											type="text" th:field="*{periodo}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="periodo" placeholder="Periodo actual"> <small></small>
+										<label class="col-md-4" for="holguradecantidad">Faltante del bien:</label> 
+										<input type="text" th:field="*{holguradecantidad}" class="form-control form-control-sm col-md-7 shadow" id="holguradecantidad"
+											placeholder="Ingrese el desfaz de la cantidad requerida">
+										    <small class="form-text text-danger" th:if="${#fields.hasErrors('holguradecantidad')}" th:errors="*{holguradecantidad}"></small>
 									</div>
 									<div class="form-group row">
-										<label class="col-md-2" for="fechaaccion">Fecha de
-											Acción:</label> <input type="text" th:field="*{fechaaccion}"
-											class="form-control form-control-sm col-md-6 shadow"
-											id="fechaaccion" placeholder="Fecha de Acción"> <small></small>
+										<label class="col-md-4" for="accionrealizada">Acción realizada:</label> 
+										<input type="text" th:field="*{accionrealizada}" class="form-control form-control-sm col-md-7 shadow" id="accionrealizada"
+											placeholder="Acción tomada sobre el bien">
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('accionrealizada')}" th:errors="*{accionrealizada}"></small>
 									</div>
-									<div class="modal-footer">
-										<button type="button"
-											class="btn btn-info btn-sm rounded-pill shadow"
-											data-dismiss="modal">Cancelar</button>
-										<input type="submit"
-											class="btn btn-success btn-sm rounded-pill shadow"
-											value="Guardar cambios" />
+									<div class="form-group row">
+										<label class="col-md-4" for="periodo">Periodo:</label> 
+										<input type="text" th:field="*{periodo}" class="form-control form-control-sm col-md-7 shadow"
+											id="periodo" placeholder="Periodo actual">
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('periodo')}" th:errors="*{periodo}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="fechaaccion">Fecha de acción:</label>
+											<input type="text" th:field="*{fechaaccion}" class="form-control form-control-sm col-md-7" id="fechaaccion"
+											placeholder="Fecha de acción">
+									</div>
+									<div class="modal-footer bg-info">
+										<button type="button" class="btn btn-primary btn-sm rounded-pill shadow" data-dismiss="modal">Cancelar</button>
+										<input type="submit" class="btn btn-success btn-sm rounded-pill shadow" value="Guardar cambios" />
 									</div>
 
 								</div>
@@ -557,6 +572,126 @@
 						</div>
 					</div>
 				</form>
+			</div>
+			<!-- MODAL DE VENTANA  FORMULARIO GUARDAR -->
+			<div class="guardar">
+					<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-md">
+							<div class="modal-content">
+								<div class="modal-header bg-info  text-white">
+									<img class="imagenlogo" th:src="@{/images/sdh.png}" />
+									<h5 class="modal-title" th:text="${titulo10}" id="exampleModalLabel"></h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!-- FORMULARIO MODAL-->
+								<div class="container">
+									<div class="row">
+										<div class="col-xs-6">
+											<form th:action="@{/views/Formulario/listaporspi}" method="post" id="listaportipo">
+												<div class="form-group row">
+													<label class="col-md-4" for="filtrarportipo">Tipo:</label>
+													<select class="form-control form-control-sm col-md-8 shadow" required="required" th:value="${tipo.idtipo}" name="filtrarportipo" id="filtrarportipo">
+														<option disabled="disabled" selected="selected">--Elija tipo--</option>
+														<option th:each="tipo:${listatipo}" th:value="${tipo.idtipo}" th:text="${tipo.nombre}"></option>
+													</select> 
+												</div>
+											</form>
+										</div>
+										<div class="col-xs-4">
+											<form th:action="@{/views/Formulario/Elegiractivo}" method="post" id="listaportipo">
+												<div class="form-group row">
+													<label class="col-md-4" for="filtrarportipo">Bien:</label> 
+													<select class="form-control form-control-sm col-md-8 shadow" name="idactivo1" id="idactivo1" required="required">
+														<option disabled="disabled" selected="selected">--Eligir activo --</option>
+													</select>
+												</div>
+											</form>
+										</div>
+									
+									</div>
+								</div>
+								<form th:action="@{/views/Formulario/listaporspi/save}" th:object=${registrodelspi} method="post">
+									<div >
+										<input type="hidden" th:field="*{idregistro}">
+										<!-- <label class="col-md-4" for="idactivo">Bien:</label>  -->
+										<input type="hidden" th:field="*{idactivo}" name="idactivo2" id="idactivo2" class="form-control form-control-sm col-md-7 shadow">
+									</div>
+									<div th:each="item:${listaspi1}">
+										<input type="hidden" id="spi1" th:value="${item.idspi}">
+										<!-- <label class="col-md-4" for="idspi">Spi:</label>  -->
+										<input type="hidden" th:field="*{idspi}" id="spi" class="form-control form-control-sm col-md-7 shadow">
+									</div>
+									<div th:each="item:${listaspi1}">
+										<input type="hidden" id="idinstitucion2" th:value="${item.idinstitucion.idinstitucion}">
+										<!-- <label class="col-md-7" for="idinstitucion">Pertenencia del Bien:</label>  -->
+										<input type="hidden" th:field="*{idinstitucion}" id="idinstitucion1" class="form-control form-control-sm col-md-7 shadow">
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="cantidad">Cantidad:</label> 
+										<input type="text" th:field="*{cantidad}" class="form-control form-control-sm col-md-7 shadow" id="cantidad"
+											placeholder="Ingrese la cantidad actual del bien"> 
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="estado">Estado del bien:</label>
+										<select th:field="*{estado}" class="form-control form-control-sm col-md-7 shadow" id="estado">
+											<option th:value="Bueno" th:text="Bueno"></option>
+											<option th:value="Regular" th:text="Regular"></option>
+											<option th:value="Malo" th:text="Malo"></option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="prioridad">Prioridad:</label> 
+										<select th:field="*{prioridad}" class="form-control form-control-sm col-md-7 shadow" id="prioridad">
+											<option th:value="Baja" th:text="Baja"></option>
+											<option th:value="Media" th:text="Media"></option>
+											<option th:value="Alta" th:text="Alta"></option>
+										</select>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="cantidadrequerida">Cantidad requerida:</label> 
+											<input type="text" th:field="*{cantidadrequerida}" class="form-control form-control-sm col-md-7 shadow" id="cantidadrequerida"
+											placeholder="Ingrese la cantidad requerida del bien">
+										    <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidadrequerida')}" th:errors="*{cantidadrequerida}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="holguradecantidad">Faltante del bien:</label> 
+											<input type="text" th:field="*{holguradecantidad}" class="form-control form-control-sm col-md-7 shadow" id="holguradecantidad"
+											placeholder="Ingrese el desfaz de la cantidad requerida">
+										    <small class="form-text text-danger" th:if="${#fields.hasErrors('holguradecantidad')}" th:errors="*{holguradecantidad}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="accionrealizada">Acción realizada:</label> 
+											<input type="text" th:field="*{accionrealizada}" class="form-control form-control-sm col-md-7 shadow" id="accionrealizada"
+											placeholder="Acción tomada sobre el bien">
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('accionrealizada')}" th:errors="*{accionrealizada}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="periodo">Periodo:</label> 
+										<input type="text" th:field="*{periodo}" class="form-control form-control-sm col-md-7 shadow"
+											id="periodo" placeholder="Periodo actual">
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('periodo')}" th:errors="*{periodo}"></small>
+									</div>
+									<div class="form-group row">
+										<label class="col-md-4" for="fechaaccion">Fecha de acción:</label>  
+										<input th:type="date" th:field="*{fechaaccion}" class="form-control form-control-sm col-md-7 shadow"
+											id="fechaaccion" placeholder="Fecha de acción">
+											<small class="form-text text-danger" th:if="${#fields.hasErrors('fechaaccion')}" th:errors="*{fechaaccion}"></small>
+									</div>
+									<div class="modal-footer bg-info">
+										<button type="button" class="btn btn-primary btn-sm rounded-pill shadow" data-dismiss="modal">Cancelar</button>
+										<input type="submit" class="btn btn-success btn-sm rounded-pill shadow" value="Guardar cambios" />
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				
 			</div>
 	</div>
 	</main>

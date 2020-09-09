@@ -32,15 +32,15 @@ public class SpiDatosController {
 	
 	@GetMapping("/")
 	public String listarSpiDatos(Model model) {
-		List<SpiDatos> listaSpiDatos= ISpiDatosService.listaspidatos();
-		model.addAttribute("titulo","Lista Spi Datos");
-		model.addAttribute("listaspidatos",listaSpiDatos);
+		List<SpiDatos> listaspidatos= ISpiDatosService.listaspidatos();
+		model.addAttribute("titulo","Lista de los SPI");
+		model.addAttribute("listaspidatos",listaspidatos);
 		//CREAR FORMULARIO REGISTRO DE VENTANA MODAL spidatos.html
 		SpiDatos spidatos=new SpiDatos();
 		List<Zona> listazona=IZonaService.listazona();
 		List<Institucion> listainstitucion=IInstitucionService.listainstitucion();
-		model.addAttribute("titulo1","Formulario: Nuevo Registro de Spi");
-		model.addAttribute("titulo2","Formulario: Editar Registro de Spi");
+		model.addAttribute("titulo1","Formulario: Nuevo Registro de SPI");
+		model.addAttribute("titulo2","Formulario: Editar Registro de SPI");
 		model.addAttribute("spidatos",spidatos);
 		model.addAttribute("listazona",listazona);
 		model.addAttribute("listainstitucion",listainstitucion);

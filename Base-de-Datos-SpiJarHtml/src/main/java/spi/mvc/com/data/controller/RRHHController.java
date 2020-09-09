@@ -2,9 +2,12 @@ package spi.mvc.com.data.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +35,7 @@ public class RRHHController {
 	@GetMapping("/")
 	public String listarCantones(Model model) {
 		List<RRHH> listarrhh=IRRHHService.listarrrhh();
-		model.addAttribute("titulo","Lista del Recurso Humano del Spi ");
+		model.addAttribute("titulo","Lista del Recurso Humano de los SPI ");
 		model.addAttribute("listarrhh",listarrhh);
 		//CREAR FORMULARIO REGISTRO DE VENTANA MODAL spidatos.html
 		RRHH rrhh=new RRHH();
@@ -48,9 +51,26 @@ public class RRHHController {
 	
 	//GUARDAR
 	@PostMapping("/save")
-	public String guardar(@ModelAttribute RRHH rrhh) {
+	public String guardar(@Valid @ModelAttribute RRHH rrhh, BindingResult result, Model model) {
+		List<RRHH> listarrhh=IRRHHService.listarrrhh();
+		List<Zona> listazona=IZonaService.listazona();
+		List<SpiDatos> listaspi=ISpiDatosService.listaspidatos();
+		
+		if(result.hasErrors()) {
+			model.addAttribute("titulo","Lista del Recurso Humano de los SPI ");
+			model.addAttribute("listarrhh",listarrhh);
+			//CREAR FORMULARIO REGISTRO DE VENTANA MODAL spidatos.html
+			model.addAttribute("titulo1","Formulario: Nuevo Registro de funcionario");
+			model.addAttribute("titulo2","Formulario: Editar Registro de funcionario");
+			model.addAttribute("rrhh",rrhh);
+			model.addAttribute("listazona",listazona);
+			model.addAttribute("listaspi",listaspi);
+			System.out.print("Hubo errores en el formulario de rrhh");
+			return "/views/RRHH/rrhh";	
+			
+		}
 		IRRHHService.guardar(rrhh);
-		System.out.print("REGISTRO GUARDADO");
+		System.out.print("REGISTRO RRHH GUARDADO CON ÉXITO");
 		return "redirect:/views/RRHH/";
 	}
 	

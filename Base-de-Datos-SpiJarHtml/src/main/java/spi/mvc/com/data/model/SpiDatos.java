@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="spi_datos")
@@ -30,7 +29,6 @@ public class SpiDatos implements Serializable{
 	private Institucion idinstitucion;
 	@ManyToOne
 	@JoinColumn(name="idzona")
-	@JsonIgnore
 	private Zona idzona;
 	private String nombre;
 	private String daservicioa;
@@ -39,26 +37,6 @@ public class SpiDatos implements Serializable{
 	private int numerodeoficina;
 	private String convenio;
 	private String observaciones;
-	
-	public SpiDatos() {
-		super();
-	}
-
-
-	public SpiDatos(Long idspi, Institucion idinstitucion, Zona idzona, String nombre, String daservicioa,
-			String direccion, String telefono, int numerodeoficina, String convenio, String observaciones) {
-		super();
-		this.idspi = idspi;
-		this.idinstitucion = idinstitucion;
-		this.idzona = idzona;
-		this.nombre = nombre;
-		this.daservicioa = daservicioa;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.numerodeoficina = numerodeoficina;
-		this.convenio = convenio;
-		this.observaciones = observaciones;
-	}
 	
 	
 	public Long getIdspi() {

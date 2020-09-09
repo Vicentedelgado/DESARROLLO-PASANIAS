@@ -4,8 +4,10 @@
 	font-family: times,serif;
 	margin: 0 auto;
 	background-color:#dbdfe2;
-	background-image: url("/images/color3.png");
+	/* background-image: url("/images/color3.png"); */
+	background-image: url("/images/loro1.png");
 	/* background-image: url("/images/b31.png"); */
+	background-size: cover; 
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
@@ -32,6 +34,9 @@ header{
 	width:100%;
 	max-width:1300px;
 	margin: 0 auto;
+}
+.imagenlogo{
+	width: 73px;
 }
 .imagenhome{
 	margin-left:20px;

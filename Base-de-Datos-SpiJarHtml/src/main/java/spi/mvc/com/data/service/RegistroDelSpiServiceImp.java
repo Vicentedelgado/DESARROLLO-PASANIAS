@@ -1,16 +1,38 @@
 package spi.mvc.com.data.service;
 
 
+//import java.io.File;
+//import java.io.FileOutputStream;
 import java.util.List;
+
+//import javax.servlet.ServletContext;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+//import com.itextpdf.text.BaseColor;
+//import com.itextpdf.text.Document;
+//import com.itextpdf.text.Element;
+//import com.itextpdf.text.Font;
+// com.itextpdf.text.FontFactory;
+//import com.itextpdf.text.PageSize;
+//import com.itextpdf.text.Paragraph;
+//import com.itextpdf.text.Phrase;
+//import com.itextpdf.text.pdf.PdfPCell;
+//import com.itextpdf.text.pdf.PdfPTable;
+//import com.itextpdf.text.pdf.PdfWriter;
+
+//import spi.mvc.com.data.model.Activo;
+//import spi.mvc.com.data.model.Institucion;
 import spi.mvc.com.data.model.RegistrodelSpi;
 import spi.mvc.com.data.model.SpiDatos;
 import spi.mvc.com.data.repository.RegistroDelSpiRepository;
 
 @Service
+@Transactional
 public class RegistroDelSpiServiceImp implements IRegistroDelSpiService {
 	
 	@Autowired
@@ -47,13 +69,13 @@ public class RegistroDelSpiServiceImp implements IRegistroDelSpiService {
 		RegistroDelSpiRepository.deleteById(idregistro);
 
 	}
-
+	
 	@Override
 	public List<RegistrodelSpi> Listaregistrodelspiinstalaciones(SpiDatos idspi) {
 		// TODO Auto-generated method stub
 		return (List<RegistrodelSpi>) RegistroDelSpiRepository.Listaregistrodelspiinstalaciones(idspi);
 	}
-
+	
 	@Override
 	public List<RegistrodelSpi> Listaregistrodelspibienes(SpiDatos idspi) {
 		// TODO Auto-generated method stub
@@ -82,7 +104,7 @@ public class RegistroDelSpiServiceImp implements IRegistroDelSpiService {
 	public List<RegistrodelSpi> Listaregistrodelspiconectividad(SpiDatos idspi) {
 		// TODO Auto-generated method stub
 		return (List<RegistrodelSpi>) RegistroDelSpiRepository.Listaregistrodelspiconectividad(idspi);
-	}
+	}	
 	
 
 }

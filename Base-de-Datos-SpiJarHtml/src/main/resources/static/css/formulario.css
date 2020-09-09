@@ -1,0 +1,131 @@
+@charset "ISO-8859-1";
+
+.body1{
+	font-family: times,serif;
+	margin: 0 auto;
+	background-color:#dbdfe2;
+	/* background-image: url("/images/color3.png"); */
+	background-image: url("/images/b31.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+header{
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	z-index:1;
+}
+
+.main{
+	padding-top:5rem;
+	margin-bottom: 100px;
+}
+
+.nav-item a:hover{
+	background:#5ab3c1;
+	transition:all 0.4s linear;	
+	border-radius:10px;
+}
+.alert{
+	text-align: center;
+}
+.container{
+	width:100%;
+	max-width:1300px;
+	margin: 0 auto;
+}
+
+.imagenlogo{
+	width: 73px;
+	margin-right: 80px;
+}
+
+.formularioimagen{
+	width: 96%;
+	margin-left: 1%;
+}
+
+.row .col-xs-4{
+	width: 226px;
+    margin-left: 50px;
+    margin-right: -80px;
+}
+.row .col-xs-4 a{
+	margin-top: 30px;	
+}
+
+.btn-group{
+	    margin-bottom: 10px;
+}
+
+.btn-group a{
+	margin-right: 10px;
+}
+
+svg{
+	margin-right: 40px;
+}
+.card-header{
+	background-color:#6cd4ff;
+}
+
+.card-body{
+	background-color:#D4E6F1;
+}
+
+.table{
+	border-color:solid 1px #7abaff;
+}
+
+.tbody{
+	background-color:#E2F4FF;
+}
+
+.modal-body{
+	background-color:#d9efdc;
+	background-image: url("/images/b32.jpg");	
+}
+
+
+.tiposactivos{
+	color:#0062cc;
+}
+
+.ocultarcolunma{
+	visibility:collapse;
+	display: none;
+}
+
+.celdaeditar{
+	border: solid 1px #7abaff;
+	width: 0 auto;
+	height: 0 auto;
+	caret-color:blue;
+	outline-color: #5ab3c1;
+	text-align: center; 	
+}
+
+.footer{
+	padding-bottom: 0px;
+}
+
+.botonguardar{
+	margin-left:400px
+}
+
+th, td{
+	border: solid 1px #7abaff;
+}
+
+.hr2{
+	height: 10px;
+}
+
+/* div.dataTables_wrapper {
+        margin-bottom: 3em;
+    } */
+.page-link a{
+	z-index: -1;
+}

@@ -28,17 +28,18 @@ header{
 	transition:all 0.4s linear;	
 	border-radius:10px;
 }
+.alert{
+	text-align: center;
+}
 .container{
 	width:100%;
 	max-width:1300px;
 	margin: 0 auto;
 }
-.imagenformulario{
-	margin-top:10px;
-	margin-left:80px;
-	margin-bottom:10px;
-	width: 100%;
-	border-radius:30px;
+
+.imagenlogo{
+	width: 73px;
+	margin-right: 80px;
 }
 
 .Logoletra{
@@ -56,12 +57,16 @@ header{
 }
 
 .table{
-	border-color:#7abaff;
+	border-color:solid 1px #7abaff;
 }
 
 .tbody{
-	background-color:#f9f9ff;
+	background-color:#E2F4FF;
 }
+
+/* .table td:nth-child(9){
+	background-color:#d5e8d4;
+} */
 
 .modal-body{
 	background-color:#d9efdc;
@@ -97,5 +102,6 @@ header{
 	margin-left:400px
 }
 
-.btn-group{
+.btn-group, .btn-group-vertical {
+    position: absolute !important;
 }

@@ -1,6 +1,8 @@
 package spi.mvc.com.data.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name="registro_del_spi")
@@ -19,6 +26,8 @@ public class RegistrodelSpi implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	DateFormat formatofecha = new SimpleDateFormat("dd/MM/yyyy");
 	@Id
 	//@Column(name = "idregistro")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,15 +42,21 @@ public class RegistrodelSpi implements Serializable{
 	@JoinColumn(name="idinstitucion")
 	private Institucion idinstitucion;
 	private String estado;
+	@NotNull (message="El estado del bien es obligatoria")
 	private Short cantidad;
+	@NotNull (message="La cantidad requerida es obligatoria")
 	private Short cantidadrequerida;
+	@NotNull (message="La cantidad faltante es obligatoria")
 	private Short holguradecantidad;
 	private String prioridad;
+	@NotEmpty (message="Una acción sobre el bien es obligatoria")
 	private String accionrealizada;
+	@NotEmpty(message="El periodo es obligatorio")
 	private String periodo;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaaccion;
 	
-	
+
 	public Long getIdregistro() {
 		return idregistro;
 	}
@@ -115,7 +130,6 @@ public class RegistrodelSpi implements Serializable{
 		this.fechaaccion = fechaaccion;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "RegistrodelSpi [idregistro=" + idregistro + ", idactivo=" + idactivo + ", idspi=" + idspi
@@ -124,6 +138,9 @@ public class RegistrodelSpi implements Serializable{
 				+ ", prioridad=" + prioridad + ", accionrealizada=" + accionrealizada + ", periodo=" + periodo
 				+ ", fechaaccion=" + fechaaccion + "]";
 	}
+	
+	
+	
 	
 	
 					

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="rrhh")
@@ -27,14 +29,24 @@ public class RRHH implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idzona")
 	private Zona idzona;
+	@NotEmpty
 	private String nombres;
+	@NotEmpty
 	private String apellidos;
+	@NotEmpty
 	private String cedula;
+	@NotEmpty
 	private String cargo;
+	@NotEmpty
 	private String unidad;
+	@NotEmpty
 	private String telefono;
+	@NotEmpty
+	@Email
 	private String email;
+	@NotEmpty
 	private String direccion;
+	@NotEmpty
     private String estado;
 	
 	
