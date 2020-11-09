@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+<header th:replace="plantilla/templateadmin :: header"></header>
+
+
+
+<div class="container">
+
+<div class="form-row">
+		<br>
+
+ <div class="form-group col-md-9">
+ <br>
+      		 <h2>INFORME DE PERIFÉRICOS</h2>
+      		
+    	</div>
+    	 <div class="form-group col-md-3">
+      		
+      		 <img th:src="@{/img/per1.ico}">
+    	</div>
+</div>
+	
+	<form th:action="@{/views/admin/informeperiferico/save}" th:object="${informe}" method="POST" enctype="multipart/for-data">
+  
+  	<div class="form-row">
+    
+    
+    <input type="hidden" th:field="*{idinforme}">
+    	<div class="form-group col-md-1">
+    	</div>
+    	<div class="form-group col-md-3">
+      		<label for="nombre">Fecha de Requerimiento</label>
+      		<input type="date" class="form-control" id="nombre" th:field="*{fecharequerimiento}">
+    	</div>
+    	<div class="form-group col-md-3">
+      		<label for="nombre">Fecha de Atención</label>
+      		<input type="date" class="form-control" id="nombre" th:field="*{fechaatencion}">
+    	</div>
+    	<div class="form-group col-md-4">
+      		<label for="marca">Persona Encargada</label>
+      		<input type="text" class="form-control" id="marca" th:field="*{personaencargada}">
+    	</div>
+    	
+    	<div class="form-group col-md-3">
+      		<!-- <label for="idper">ID PERIFERICO</label> -->
+      		
+      		<input type="hidden" class="form-control" id="idper1" th:value="${idperiferico}">
+      			<input type="hidden" class="form-control" id="idper" th:field="*{idperiferico}">
+    	</div>
+    	
+ 	 </div>
+ 	 
+ 	 <div class="form-row">
+ 	 	<div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="modelo">Problemas Presentados </label>
+      		<input type="text" class="form-control" id="modelo" th:field="*{novedadessolicitud}">
+    	</div>
+ 	 </div>
+ 	 <div class="form-row">
+ 	 <div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="serie">Actividades a realizarse</label>
+      		<input type="text" class="form-control" id="serie" th:field="*{actividades}" >
+    	</div>
+ 	 </div>
+ 	 	<div class="form-row">
+ 	 	<div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="estado">Conclusiones y Recomendaciones</label>
+      		<input type="text" class="form-control" id="estado" th:field="*{conclusiones}" >
+    	</div>
+ 	 </div>
+ 	 <div class="form-row">
+ 	 <div class="form-group col-md-3">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<div class="ui segment">
+        <div>
+          <label for="archivos">Elige el archivo a subir: </label>          
+          <input type="hidden" th:field="*{archivos}" name="file" id="archivos" >
+		  <input type="file" name="file" class="form-control-file" id="archivos" lang="es">
+        </div>
+      </div>
+    	</div>
+ 	 </div> 	
+<br>
+	<div class="form-row">
+ 	 <div class="form-group col-md-5">
+    	</div>
+    	<div class="form-group col-md-5">
+        	<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/admin/informeperiferico/}">
+
+    	</div>
+ 	 </div>
+  
+</form>
+
+</div>
+
+
+<footer th:replace="plantilla/templateadmin :: footer">
+
+</footer>
+</body>
+</html>

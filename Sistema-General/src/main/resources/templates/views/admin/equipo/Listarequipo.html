@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+<header th:replace="plantilla/templateadmin :: header"></header>
+<main class="main">
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 ">
+   				 <br>
+      				  <a class="btn btn-outline-info"
+						th:href="@{/views/admin/equipo/create}" role="button">Añadir Equipo
+						<img class="img-responsive center-box"
+								th:src="@{/img/equi1.ico}">
+						</a>
+   			 </div>
+   			 <div class="col-sm-3 ">
+   				 <br>
+      				  <a class="btn btn-outline-info"
+						th:href="@{'/views/admin/equipo/'+'?format=xlsx'}" role="button">Descargar Reporte
+						<img class="img-responsive center-box"
+								th:src="@{/img/equi1.ico}">
+						</a> <br>
+   			 </div>
+		</div>
+		<br>
+	<div >
+		<table id="equipo1"class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+			<thead class="thead bg-info text-white">
+				<tr>
+					<th>ID Equipo</th>
+					<th>Nombre del Equipo</th>
+					<th>Tipo</th>
+					<th>Serie</th>
+					<th>Marca</th>
+					<th>Modelo</th>
+					<th>Estado</th>
+					<th>Editar</th>
+					<th>Nuevo Informe</th>
+
+				</tr>
+			</thead>
+			<tbody class="tbody">
+
+				<tr th:each="equipo:${equipo}">
+					<td scope="row">
+					<a class= "btn btn-info btn-xs"
+						th:href="@{/views/admin/equipo/detalle/}+${equipo.idequipo}"
+						th:text="${equipo.idequipo}">
+					</a>
+					</td>
+					<td th:text="${equipo.nombreequipo}"></td>
+					<td th:text="${equipo.tipo}"></td>
+					<td th:text="${equipo.serie}"></td>
+					<td th:text="${equipo.marca}"></td>
+					<td th:text="${equipo.modelo}"></td>
+					<td th:text="${equipo.estado}"></td>
+					<td><a class="btn btn-success btn-sm"
+						th:href="@{/views/equipo/edit/} + ${equipo.idequipo}"
+						th:text="'Editar'"></a></td>
+
+					<td><a class="btn btn-success btn-sm"
+						th:href="@{/views/admin/informeequipo/create/} + ${equipo.idequipo} "
+						role="button">Añadir Informe</a></td>
+				</tr>
+
+
+			</tbody>
+
+
+
+		</table>
+	</div>
+		
+	</div>
+
+</main>
+
+	<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templatefuncionario::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+	<header th:replace="plantilla/templatefuncionario :: header"></header>
+	
+	<main class="main">
+	<br>
+	<br>
+
+	<div class="continer">
+		<div align='center'>
+
+			<input type="hidden" id="baseURL" th:value="@{/views/funcionario/cargo/filtrar/}">
+
+			<!-- Dar validacion -->
+
+			<input id="idcedula" type="text"  placeholder="Ingrese su cédula"> 
+			<a	class="btn btn-info  btn-sm rounded-pill" id="filtrar" th:href="@{/views/funcionario/cargo/filtrar/}"> BUSCAR </a>
+
+			<div class="container">
+
+				<div align='right'>
+
+					<a class="btn btn-info " th:href="@{/views/funcionario/Vista/}" role="button">Atras</a>
+
+
+				</div>
+			</div>
+			<div class="btn" th:each="ced:${listadocedula}">
+			<a class="btn" id="pdf"
+				th:href="@{'/views/admin/cargo/filtrar/'+ ${ced.idusuario.cedula}+'?format=pdf'}"
+				title="Imprimir" target="_blank"> 
+				<img class="img-responsive center-box" th:src="@{/img/impresora.ico}">
+				
+				</a>
+		</div>
+		</div>
+
+	</div>
+
+
+
+	<div class="container">
+
+		<h2>Périfericos a Cargo</h2>
+		<br>
+		<div class="table-responsive" id="sailorTableArea">
+			<table id="sailorTable" class="table table-hover table-bordered">
+				<thead class="thead bg-info text-white">
+					<tr>
+						<th >Nombre Funcionario</th>
+			    		<th >Apellido Funcionario</th>
+						<th>Cédula</th>
+						<th>Serie del Périferico</th>
+						<th>Nombre del Périferico</th>
+						<th>Modelo del Périferico</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr th:each="ced:${listadocedula}">
+					<th th:text="${ced.idusuario.nombres}"></th>
+			    	<th th:text="${ced.idusuario.apellidos}"></th>
+						<td th:text="${ced.idusuario.cedula}"></td>
+						<th th:text="${ced.idperiferico.serie}"></th>
+						<th th:text="${ced.idperiferico.nombreperiferico}"></th>
+						<th th:text="${ced.idperiferico.modelo}"></th>
+						<th th:text="${ced.idperiferico.estado}"></th>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+	</main>
+	
+	<footer th:replace="plantilla/templatefuncionario:: footer">
+
+	</footer>
+</body>
+</html>

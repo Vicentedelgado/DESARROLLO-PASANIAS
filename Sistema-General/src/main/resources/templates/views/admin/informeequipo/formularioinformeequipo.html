@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+<header th:replace="plantilla/templateadmin :: header"></header>
+<main class="main">
+
+
+<div class="container">
+
+	<br>
+	 <h2>INFORME DE EQUIPO</h2>
+    
+     <br>
+	
+	<form th:action="@{/views/admin/informeequipo/save}" th:object="${informeequipo}" method="POST" enctype="multipart/form-data">
+  
+  	<div class="form-row">
+    
+    <input type="hidden" th:field="*{idinformeequipo}">
+    	<div class="form-group col-md-1">
+    	</div>
+    	<div class="form-group col-md-3">
+      		<label for="nombre">Fecha de Requerimiento</label>
+      		<input type="date" class="form-control" id="nombre" th:field="*{fecharequerimiento}">
+    	</div>
+    	<div class="form-group col-md-3">
+      		<label for="nombre">Fecha de Atención</label>
+      		<input type="date" class="form-control" id="nombre" th:field="*{fechaatencion}">
+    	</div>
+    	<div class="form-group col-md-4">
+      		<label for="personaencargada">Persona Encargada</label>
+      		<input type="text" class="form-control" id="personaencargada" th:field="*{personaencargada}">
+      		<small class="form-text text-danger col-md-8" th:if="${#fields.hasErrors('personaencargada')}" th:errors="*{personaencargada}"></small>	
+    	</div>
+    	
+    	<div class="form-group col-md-3">
+      		<!-- <label for="idper">ID EQUIPO/label> -->
+      		
+      		<input type="hidden" class="form-control" id="idper1" th:value="${idequipo}">
+      		<input type="hidden" class="form-control" id="idper" th:field="*{idequipo}">
+    	</div>
+    	
+ 	 </div>
+ 	 
+ 	 <div class="form-row">
+ 	 	<div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="novedadessolicitud">Problemas Presentados </label>
+      		<input type="text" class="form-control" id="novedadessolicitud" th:field="*{novedadessolicitud}">
+      		<small class="form-text text-danger col-md-8" th:if="${#fields.hasErrors('novedadessolicitud')}" th:errors="*{novedadessolicitud}"></small>	
+    	</div>
+ 	 </div>
+ 	 <div class="form-row">
+ 	 <div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="actividades">Actividades a realizarse</label>
+      		<input type="text" class="form-control" id="actividades" th:field="*{actividades}" >
+      		<small class="form-text text-danger col-md-8" th:if="${#fields.hasErrors('actividades')}" th:errors="*{actividades}"></small>	
+    	</div>
+ 	 </div>
+ 	 	<div class="form-row">
+ 	 	<div class="form-group col-md-2">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<label for="conclusiones">Conclusiones y Recomendaciones</label>
+      		<input type="text" class="form-control" id="conclusiones" th:field="*{conclusiones}" >
+      		<small class="form-text text-danger col-md-8" th:if="${#fields.hasErrors('conclusiones')}" th:errors="*{conclusiones}"></small>	
+    	</div>
+ 	 </div>
+ 	 <div class="form-row">
+ 	 <div class="form-group col-md-3">
+    	</div>
+    	<div class="form-group col-md-8">
+      		<div class="ui segment">
+        <div>
+          <label for="archivos">Elige el archivo a subir: </label>          
+          <input type="hidden" th:field="*{archivos}" name="file" id="archivos" >
+		  <input type="file" name="file" class="form-control-file" id="archivos" lang="es">
+        </div>
+      </div>
+    	</div>
+ 	 </div> 	
+<br>
+	<div class="form-row">
+ 	 <div class="form-group col-md-5">
+    	</div>
+    	<div class="form-group col-md-5">
+        	<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/admin/informeequipo/}">
+      		</div>
+    </div>
+
+</form>
+
+</div>
+
+</main>
+<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+</body>
+</html>

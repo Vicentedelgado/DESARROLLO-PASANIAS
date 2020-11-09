@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/templateadmin :: head">
+<meta charset="UTF-8">
+</head>
+<body class="body1">
+	<header th:replace="plantilla/templateadmin :: header"></header>
+	<main class="main">
+		<div class="container">
+		<!--FORMULARIO PÁGINA-->
+			<div class="card bg-light border-info">
+				<div class="card-header bg-info text-white" th:text="${titulo}"></div>
+				<div class="card-boby" id="cardeditarbody">
+					<div class="form-row">
+						<div class="form-group col-md-4">
+							<ul class="list-group">
+								<li class="list-group-item" th:text="'Problemas presentados: ' + ${informeperiferico.novedadessolicitud}"></li>
+								<li class="list-group-item" th:text="'Actividades a realizar: ' + ${informeperiferico.actividades}"></li>
+								<li class="list-group-item" th:text="'Fecha de atención:   ' + ${#dates.format(informeperiferico.fechaatencion, 'dd/MM/yyyy')}"></li>
+								<li class="list-group-item" th:text="'Fecha Requerimiento: ' + ${#dates.format(informeperiferico.fecharequerimiento, 'dd/MM/yyyy')}"></li>
+								<li class="list-group-item" th:text="'Conclusiones: ' + ${informeperiferico.conclusiones}"></li>
+								<li class="list-group-item" th:text="'Persona encargada: ' + ${informeperiferico.personaencargada}"></li>
+								<li class="list-group-item" th:text="'Archivo: ' + ${informeperiferico.archivos}"></li>
+							</ul>
+						</div>
+						<div class="form-group col-md-8">
+							<iframe id="iframe" th:alt="${informeperiferico.archivos}" th:src="@{'/InformesPeriferico/' + ${informeperiferico.archivos}}" style=" width: 100%; height: 100%;" ></iframe>
+						</div>
+					</div>	
+				</div>
+			</div><br>
+		</div>	
+	</main>
+	
+	<footer th:replace="plantilla/templateadmin :: footer"></footer>
+</body>
+</html>

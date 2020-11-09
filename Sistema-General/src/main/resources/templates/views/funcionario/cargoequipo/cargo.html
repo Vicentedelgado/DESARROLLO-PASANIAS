@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templatefuncionario::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+	<header th:replace="plantilla/templatefuncionario :: header"></header>
+	<main class="main">
+
+		<br> <br>
+		<div class="continer">
+			<div align='center'>
+				<input type="hidden" id="baseURL"
+					th:value="@{/views/funcionario/cargoequipo/filtrar/}">
+				<!-- Dar validacion -->
+
+				<input id="idced" type="text" placeholder="Ingrese su cédula">
+
+				<a class="btn btn-info  btn-sm rounded-pill" id="filtrar"
+					th:href="@{/views/funcionario/cargoequipo/filtrar/}"> BUSCAR </a>
+				<div class="container">
+					<div align='right'>
+
+						<a class="btn btn-info " th:href="@{/views/funcionario/Vista/}" role="button">Atras</a>
+
+					</div>
+					<div class="btn" th:each="ced:${listadocedula}">
+			<a class="btn" id="pdf"
+				th:href="@{'/views/admin/cargoequipo/filtrar/'+ ${ced.idusuario.cedula}+'?format=pdf'}"
+				title="Imprimir" target="_blank"> 
+				<img class="img-responsive center-box" th:src="@{/img/impresora.ico}">
+				
+				</a>
+		</div>
+				</div>
+				
+				
+			</div>
+		</div>
+
+		<br> <br>
+
+		<div class="container">
+			<h2>Equipo a Cargo</h2>
+			<br>
+			<div class="table-responsive" id="sailorTableArea">
+				<table id="sailorTable" class="table table-hover table-bordered">
+					<thead class="thead bg-info text-white">
+						<tr>
+							<th>Nombre Funcionario</th>
+							<th>Apellido Funcionario</th>
+							<th>Cédula</th>
+							<th>Nombre del Equipo</th>
+							<th>Serie del Equipo</th>
+							<th>Marca</th>
+							<th>Modelo del Equipo</th>
+							<th>Estado</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						<tr th:each="ced:${listadocedula}">
+							<th th:text="${ced.idusuario.nombres}"></th>
+							<th th:text="${ced.idusuario.apellidos}"></th>
+							<th th:text="${ced.idusuario.cedula}"></th>
+							<td th:text="${ced.idequipo.nombreequipo}"></td>
+							<th th:text="${ced.idequipo.serie}"></th>
+							<td th:text="${ced.idequipo.marca}"></td>
+							<td th:text="${ced.idequipo.modelo}"></td>
+							<td th:text="${ced.idequipo.estado}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="plantilla/templatefuncionario :: footer"> </footer>
+</body>
+</html>

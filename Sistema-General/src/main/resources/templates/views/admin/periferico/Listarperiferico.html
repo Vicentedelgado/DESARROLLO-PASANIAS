@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+<header th:replace="plantilla/templateadmin :: header"></header>
+
+<main class="main">
+
+<div class="container">
+<br>
+	<a class="btn btn-outline-info" th:href="@{/views/admin/periferico/create}" role="button">Añadir Periférico
+	<img class="img-responsive center-box"
+					th:src="@{/img/per3.ico}">
+	</a>
+	
+	<br>
+
+</div>
+
+
+	<div class="container mt-4">
+		
+	<table id="tablaperiferico1" class="table table-bordered table-hover table-sm" cellspacing="0" width="100%">
+					<thead class="thead bg-info text-white">
+						<tr>
+							<th>ID</th>
+							<th>Nombre del Periférico</th>
+							<th>Modelo</th>
+							<th>Serie</th>
+							<th>Marca</th>
+							<th>Estado</th>
+							<th>Editar</th>
+							<th>Nuevo Informe</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+		
+						<tr th:each="perifericos:${perifericos}">
+							<td th:text="${perifericos.idperiferico}"></td>
+							<td th:text="${perifericos.nombreperiferico}"></td>
+							<td th:text="${perifericos.marca}"></td>
+							<td th:text="${perifericos.modelo}"></td>
+							<td th:text="${perifericos.serie}"></td>
+							<td th:text="${perifericos.estado}"></td>
+							<td><a class="btn btn-success btn-sm"
+								th:href="@{/views/admin/periferico/edit/} + ${perifericos.idperiferico}"
+								th:text="'Editar'"></a></td>
+							<td><a class="btn btn-success btn-sm"
+								th:href="@{/views/admin/informeperiferico/create/}+ ${perifericos.idperiferico}"
+								th:text="'Añadir Informe'"></a></td>
+						</tr>	
+					</tbody>
+				</table>
+			</div>
+
+</main>
+
+
+<footer th:replace="plantilla/templateadmin :: footer">
+
+</footer>
+
+ 
+</body>
+</html>

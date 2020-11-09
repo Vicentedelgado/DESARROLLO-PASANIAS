@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+
+
+<header th:replace="plantilla/templateadmin :: header"></header>
+
+<main class="main">
+
+<div class="container mt-4">
+	
+	<table id="tablainfoper" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+ 		<thead class="thead bg-info text-white">
+ 			<tr>
+ 				<th>ID</th>
+ 				<th>Fecha de Requerimiento</th>
+ 				<th>Fecha de Atencion</th>
+ 				<th>Persona Encargada</th>
+ 				<th>Novedades de Solicitud</th>
+ 				<th>Actividades</th>
+ 				<th>Conclusiones</th>
+ 				<th>Nombre Periferico</th>
+ 				<th>Serie Periferico</th>
+ 				<th>Imprimir</th>
+ 
+ 			</tr>
+ 	</thead>
+ 	<tbody class="tbody">
+ 	
+ 			<tr th:each="informe:${informe}"> 
+ 			<td scope="row">
+					<a class= "btn btn-info btn-xs"
+						th:href="@{/views/admin/informeperiferico/detalle/}+${informe.idinforme}"
+						th:text="${informe.idinforme}">
+					</a>
+			</td>
+ 			<td th:text="${#dates.format(informeequipo.fecharequerimiento, 'dd/MM/yyyy')}"></td>
+ 			<td th:text="${#dates.format(informeequipo.fechaatencion, 'dd/MM/yyyy')}"></td>
+ 			<td th:text="${informe.personaencargada}"></td>
+ 			<td th:text="${informe.novedadessolicitud}"></td>
+ 			<td th:text="${informe.actividades}"></td>
+ 			<td th:text="${informe.conclusiones}"></td>
+ 			<td th:text="${informe.idperiferico.nombreperiferico}"></td>
+ 			<td th:text="${informe.idperiferico.serie}"></td>
+ 			<td>
+	 			
+					<a class="btn" id="pdf"
+						th:href="@{'/views/admin/informeperiferico/filtrar1/'+ ${informe.idinforme}+'/?format=pdf'}"
+						title="Imprimir" target="_blank"> 
+						<img class="img-responsive center-box" th:src="@{/img/impresora.ico}">
+					</a>
+
+ 			</td>		
+ 			
+ 			</tr>
+ 	
+ 	
+ 	</tbody>
+ 	
+ 	
+</table>
+</div>
+
+</main>
+
+
+<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+
+</body>
+</html>

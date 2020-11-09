@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+<header th:replace="plantilla/templateadmin :: header"></header>
+<main class="main">
+
+<div class="container mt-4">
+	<br>
+	<a class="btn btn-outline-info" th:href="@{/views/admin/software/create}" role="button">Añadir Software
+	<img class="img-responsive center-box"
+					th:src="@{/img/sof1.ico}">
+	</a>
+	<br>
+	<br>
+	
+	<table id="tablasoftware" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+ 		<thead class="thead bg-info text-white">
+ 			<tr>
+ 				<th>ID</th>
+ 				<th>Sistema Operativo</th>
+ 				<th>Funcionalidad</th>
+ 				<th>Licencia</th>
+ 				<th>Ofimática</th>
+ 				<th>Serie Equipo</th>
+ 				<th>Nombre Equipo</th>
+ 				<th>Editar</th>
+	
+ 			</tr>
+ 	</thead>
+ 	<tbody class="tbody">
+ 	
+ 			<tr th:each="software:${software}"> 
+ 			<td th:text="${software.idsoftware}"></td>
+ 			<td th:text="${software.so}"></td>
+ 			<td th:text="${software.funcionalidad}"></td>
+ 			<td th:text="${software.licencia}"></td>
+ 			<td th:text="${software.ofimatica}"></td>
+ 			<td th:text="${software.idequipo.serie}"></td>
+ 			<td th:text="${software.idequipo.nombreequipo}"></td>
+ 			<td>
+ 			<a class="btn btn-success btn-sm" th:href="@{/views/admin/software/edit/} + ${software.idsoftware}" th:text="'Editar'"></a>
+ 			</td>
+ 			
+ 			</tr>
+ 	
+ 	
+ 	</tbody>
+ 	
+ 	
+ 	
+ </table>
+	</div>
+
+</main>
+<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+
+</body>
+</html>

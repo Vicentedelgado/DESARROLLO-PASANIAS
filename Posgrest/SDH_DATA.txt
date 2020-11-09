@@ -1,0 +1,508 @@
+
+/*==============================================================*/
+/* Table: ACTIVO                                                */
+/*==============================================================*/
+create table ACTIVO (
+   IDACTIVO             SERIAL               not null,
+   NOMBRE               VARCHAR(100)         not null,
+   IDTIPO               INT4                 not null,
+   DESCRIPCION          TEXT                 null,
+   constraint PK_ACTIVO primary key (IDACTIVO)
+);
+
+/*==============================================================*/
+/* Index: ACTIVO_PK                                             */
+/*==============================================================*/
+create unique index ACTIVO_PK on ACTIVO (
+IDACTIVO
+);
+
+/*==============================================================*/
+/* Index: TIPO_FK                                               */
+/*==============================================================*/
+create  index TIPO_FK on ACTIVO (
+IDTIPO
+);
+
+/*==============================================================*/
+/* Table: ASIGNACIONEQUIPO                                      */
+/*==============================================================*/
+create table ASIGNACIONEQUIPO (
+   idasignacionequipo   SERIAL               not null, 
+   idequipo             INT4                 null, 
+   IDUSUARIO            INT4                 null,
+   fechafin             VARCHAR(255)         null,
+   fechainicio          VARCHAR(255)         null,
+   observaciones        VARCHAR(255)         null,
+   constraint PK_ASIGNACIONEQUIPO primary key (idasignacionequipo)
+);
+
+/*==============================================================*/
+/* Index: ASIGNACIONEQUIPO_PK                                   */
+/*==============================================================*/
+create unique index ASIGNACIONEQUIPO_PK on ASIGNACIONEQUIPO (
+idasignacionequipo
+);
+
+/*==============================================================*/
+/* Index: INFORMACION_EQUIPO_FK                                 */
+/*==============================================================*/
+create  index INFORMACION_EQUIPO_FK on ASIGNACIONEQUIPO (
+idequipo
+);
+
+/*==============================================================*/
+/* Index: ASIGNACION_EQUIPO_FK                                  */
+/*==============================================================*/
+create  index ASIGNACION_EQUIPO_FK on ASIGNACIONEQUIPO (
+IDUSUARIO
+);
+
+/*==============================================================*/
+/* Table: ASIGNACIONPERIFERICO                                  */
+/*==============================================================*/
+create table ASIGNACIONPERIFERICO (
+   idasignacion         SERIAL               not null,
+   IDUSUARIO            INT4                 null,
+   fechafin             VARCHAR(255)         null,
+   fechainicio          VARCHAR(255)         null,
+   idperiferico         INT4                 null,
+   observaciones        VARCHAR(255)         null,
+   constraint PK_ASIGNACIONPERIFERICO primary key (idasignacion)
+);
+
+/*==============================================================*/
+/* Index: ASIGNACIONPERIFERICO_PK                               */
+/*==============================================================*/
+create unique index ASIGNACIONPERIFERICO_PK on ASIGNACIONPERIFERICO (
+idasignacion
+);
+
+/*==============================================================*/
+/* Index: ASIGNACION_PERIFERICO_FK                              */
+/*==============================================================*/
+create  index ASIGNACION_PERIFERICO_FK on ASIGNACIONPERIFERICO (
+IDUSUARIO
+);
+
+/*==============================================================*/
+/* Table: EQUIPO                                                */
+/*==============================================================*/
+create table EQUIPO (
+   idequipo             SERIAL                not null,
+   codigoanydesk        VARCHAR(255)         null,
+   codigoinstitucion    VARCHAR(255)         null,
+   estado               VARCHAR(255)         null,
+   fechaadquisicion     VARCHAR(255)         null,
+   ip                   VARCHAR(255)         null,
+   mac0                 VARCHAR(255)         null,
+   mac1                 VARCHAR(255)         null,
+   marca                VARCHAR(255)         null,
+   modelo               VARCHAR(255)         null,
+   nombreequipo         VARCHAR(255)         null,
+   observaciones        VARCHAR(255)         null,
+   ram                  VARCHAR(255)         null,
+   serie                VARCHAR(255)         null,
+   seriesngp            VARCHAR(255)         null,
+   tipo                 VARCHAR(255)         null,
+   tipoconexion         VARCHAR(255)         null,
+   tipoprocesador       VARCHAR(255)         null,
+   constraint PK_EQUIPO primary key (idequipo)
+);
+
+/*==============================================================*/
+/* Index: EQUIPO_PK                                             */
+/*==============================================================*/
+create unique index EQUIPO_PK on EQUIPO (
+idequipo
+);
+
+/*==============================================================*/
+/* Table: FUNCIONARIO                                           */
+/*==============================================================*/
+create table FUNCIONARIO (
+   IDUSUARIO            SERIAL               not null,
+   IDSPI                INT4                 not null,
+   IDZONA               INT4                 not null,
+   NOMBRES              VARCHAR(60)          not null,
+   APELLIDOS            VARCHAR(60)          not null,
+   CEDULA               VARCHAR(14)          not null,
+   CARGO                VARCHAR(30)          null,
+   DIRECCION            VARCHAR(300)         not null,
+   UNIDAD               VARCHAR(100)         null,
+   ESTADO               VARCHAR(15)          not null,
+   TELEFONO             VARCHAR(15)          not null,
+   EMAIL                VARCHAR(50)          null,
+   constraint PK_FUNCIONARIO primary key (IDUSUARIO)
+);
+
+/*==============================================================*/
+/* Index: FUNCIONARIO_PK                                        */
+/*==============================================================*/
+create unique index FUNCIONARIO_PK on FUNCIONARIO (
+IDUSUARIO
+);
+
+/*==============================================================*/
+/* Index: RRHH_FK                                               */
+/*==============================================================*/
+create  index RRHH_FK on FUNCIONARIO (
+IDSPI
+);
+
+/*==============================================================*/
+/* Index: FUNCIONARIO_FK                                        */
+/*==============================================================*/
+create  index FUNCIONARIO_FK on FUNCIONARIO (
+IDZONA
+);
+
+/*==============================================================*/
+/* Table: INFORMEEQUIPO                                         */
+/*==============================================================*/
+create table INFORMEEQUIPO (
+   idinformeequipo      SERIAL               not null,
+   idequipo             INT4                 null,
+   actividades          VARCHAR(255)         null,
+   conclusiones         VARCHAR(255)         null,
+   fechaatencion        VARCHAR(255)         null,
+   fecharequerimiento   VARCHAR(255)         null,
+   novedadessolicitud   VARCHAR(255)         null,
+   personaencargada     VARCHAR(255)         null,
+   constraint PK_INFORMEEQUIPO primary key (idinformeequipo)
+);
+
+/*==============================================================*/
+/* Index: INFORMEEQUIPO_PK                                      */
+/*==============================================================*/
+create unique index INFORMEEQUIPO_PK on INFORMEEQUIPO (
+idinformeequipo
+);
+
+/*==============================================================*/
+/* Index: INFORME_DE_EQUIPO_FK                                  */
+/*==============================================================*/
+create  index INFORME_DE_EQUIPO_FK on INFORMEEQUIPO (
+idequipo
+);
+
+/*==============================================================*/
+/* Table: INFORMEPERIFERICO                                     */
+/*==============================================================*/
+create table INFORMEPERIFERICO (
+   idinforme            SERIAL               not null,
+   idperiferico         INT4                 null,
+   actividades          VARCHAR(255)         null,
+   conclusiones         VARCHAR(255)         null,
+   fechaatencion        VARCHAR(255)         null,
+   fecharequerimiento   VARCHAR(255)         null,
+   novedadessolicitud   VARCHAR(255)         null,
+   personaencargada     VARCHAR(255)         null,
+   constraint PK_INFORMEPERIFERICO primary key (idinforme)
+);
+
+/*==============================================================*/
+/* Index: INFORMEPERIFERICO_PK                                  */
+/*==============================================================*/
+create unique index INFORMEPERIFERICO_PK on INFORMEPERIFERICO (
+idinforme
+);
+
+/*==============================================================*/
+/* Index: INFORME_PERIFERICO_FK                                 */
+/*==============================================================*/
+create  index INFORME_PERIFERICO_FK on INFORMEPERIFERICO (
+idperiferico
+);
+
+/*==============================================================*/
+/* Table: INSTITUCION                                           */
+/*==============================================================*/
+create table INSTITUCION (
+   IDINSTITUCION        SERIAL               not null,
+   NOMBRE               VARCHAR(60)          null,
+   constraint PK_INSTITUCION primary key (IDINSTITUCION)
+);
+
+/*==============================================================*/
+/* Index: INSTITUCION_PK                                        */
+/*==============================================================*/
+create unique index INSTITUCION_PK on INSTITUCION (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Table: PERIFERICO                                            */
+/*==============================================================*/
+create table PERIFERICO (
+   idperiferico         SERIAL               not null,
+   estado               VARCHAR(255)         null,
+   marca                VARCHAR(255)         null,
+   modelo               VARCHAR(255)         null,
+   nombreperiferico     VARCHAR(255)         null,
+   serie                VARCHAR(255)         null,
+   constraint PK_PERIFERICO primary key (idperiferico)
+);
+
+/*==============================================================*/
+/* Index: PERIFERICO_PK                                         */
+/*==============================================================*/
+create unique index PERIFERICO_PK on PERIFERICO (
+idperiferico
+);
+
+/*==============================================================*/
+/* Table: REGISTRO_DEL_SPI                                      */
+/*==============================================================*/
+create table REGISTRO_DEL_SPI (
+   IDREGISTRO           SERIAL               not null,
+   IDACTIVO             INT4                 null,
+   IDSPI                INT4                 null,
+   IDINSTITUCION        INT4                 null,
+   ESTADO               VARCHAR(10)          null,
+   CANTIDAD             NUMERIC(4)           null,
+   CANTIDADREQUERIDA    NUMERIC(4)           null,
+   HOLGURADECANTIDAD    NUMERIC(4)           null,
+   PRIORIDAD            VARCHAR(10)          null,
+   ACCIONREALIZADA      VARCHAR(200)         null,
+   PERIODO              VARCHAR(15)          null,
+   FECHAACCION          DATE                 null,
+   constraint PK_REGISTRO_DEL_SPI primary key (IDREGISTRO)
+);
+
+/*==============================================================*/
+/* Index: REGISTRO_DEL_SPI_PK                                   */
+/*==============================================================*/
+create unique index REGISTRO_DEL_SPI_PK on REGISTRO_DEL_SPI (
+IDREGISTRO
+);
+
+/*==============================================================*/
+/* Index: ACTIVO_FK                                             */
+/*==============================================================*/
+create  index ACTIVO_FK on REGISTRO_DEL_SPI (
+IDACTIVO
+);
+
+/*==============================================================*/
+/* Index: PERTENENCIA2_FK                                       */
+/*==============================================================*/
+create  index PERTENENCIA2_FK on REGISTRO_DEL_SPI (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Index: REGISTRO_FK                                           */
+/*==============================================================*/
+create  index REGISTRO_FK on REGISTRO_DEL_SPI (
+IDSPI
+);
+
+/*==============================================================*/
+/* Table: RELATIONSHIP_5                                        */
+/*==============================================================*/
+create table RELATIONSHIP_5 (
+   idperiferico         INT4                 not null,
+   idasignacion         INT4                 not null,
+   constraint PK_RELATIONSHIP_5 primary key (idperiferico, idasignacion)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_5_PK                                     */
+/*==============================================================*/
+create unique index RELATIONSHIP_5_PK on RELATIONSHIP_5 (
+idperiferico,
+idasignacion
+);
+
+/*==============================================================*/
+/* Index: ASIGNACION_FK                                         */
+/*==============================================================*/
+create  index ASIGNACION_FK on RELATIONSHIP_5 (
+idasignacion
+);
+
+/*==============================================================*/
+/* Index: ASIGNACION_FK2                                        */
+/*==============================================================*/
+create  index ASIGNACION_FK2 on RELATIONSHIP_5 (
+idperiferico
+);
+
+/*==============================================================*/
+/* Table: SOFTWARE                                              */
+/*==============================================================*/
+create table SOFTWARE (
+   idsoftware           SERIAL               not null,
+   idequipo             INT4                 null,
+   descripcion          VARCHAR(255)         null,
+   funcionalidad        VARCHAR(255)         null,
+   licencia             VARCHAR(255)         null,
+   tipo                 VARCHAR(255)         null,
+   constraint PK_SOFTWARE primary key (idsoftware)
+);
+
+/*==============================================================*/
+/* Index: SOFTWARE_PK                                           */
+/*==============================================================*/
+create unique index SOFTWARE_PK on SOFTWARE (
+idsoftware
+);
+
+/*==============================================================*/
+/* Index: SOFTWARE_FK                                           */
+/*==============================================================*/
+create  index SOFTWARE_FK on SOFTWARE (
+idequipo
+);
+
+/*==============================================================*/
+/* Table: SPI_DATOS                                             */
+/*==============================================================*/
+create table SPI_DATOS (
+   IDSPI                SERIAL               not null,
+   IDZONA               INT4                 not null,
+   IDINSTITUCION        INT4                 not null,
+   NOMBRE               VARCHAR(60)          not null,
+   DIRECCION            VARCHAR(500)         not null,
+   TELEFONO             VARCHAR(15)          not null,
+   NUMERODEOFICINA      VARCHAR(4)           null,
+   CONVENIO             VARCHAR(4)           null,
+   DASERVICIOA          VARCHAR(800)         not null,
+   OBSERVACIONES        VARCHAR(500)         null,
+   constraint PK_SPI_DATOS primary key (IDSPI)
+);
+
+/*==============================================================*/
+/* Index: SPI_DATOS_PK                                          */
+/*==============================================================*/
+create unique index SPI_DATOS_PK on SPI_DATOS (
+IDSPI
+);
+
+/*==============================================================*/
+/* Index: PERTENENCIA_FK                                        */
+/*==============================================================*/
+create  index PERTENENCIA_FK on SPI_DATOS (
+IDINSTITUCION
+);
+
+/*==============================================================*/
+/* Index: ZONA_FK                                               */
+/*==============================================================*/
+create  index ZONA_FK on SPI_DATOS (
+IDZONA
+);
+
+/*==============================================================*/
+/* Table: TIPO                                                  */
+/*==============================================================*/
+create table TIPO (
+   IDTIPO               SERIAL               not null,
+   NOMBRE               VARCHAR(60)          not null,
+   DESCRIPCION          VARCHAR(100)         null,
+   constraint PK_TIPO primary key (IDTIPO)
+);
+
+/*==============================================================*/
+/* Index: TIPO_PK                                               */
+/*==============================================================*/
+create unique index TIPO_PK on TIPO (
+IDTIPO
+);
+
+/*==============================================================*/
+/* Table: ZONA                                                  */
+/*==============================================================*/
+create table ZONA (
+   IDZONA               SERIAL               not null,
+   NOMBRE               VARCHAR(10)          not null,
+   constraint PK_ZONA primary key (IDZONA)
+);
+
+/*==============================================================*/
+/* Index: ZONA_PK                                               */
+/*==============================================================*/
+create unique index ZONA_PK on ZONA (
+IDZONA
+);
+
+alter table ACTIVO
+   add constraint FK_ACTIVO_TIPO_TIPO foreign key (IDTIPO)
+      references TIPO (IDTIPO)
+      on delete restrict on update restrict;
+
+alter table ASIGNACIONEQUIPO
+   add constraint FK_ASIGNACI_ASIGNACIO_FUNCIONA foreign key (IDUSUARIO)
+      references FUNCIONARIO (IDUSUARIO)
+      on delete restrict on update restrict;
+
+alter table ASIGNACIONEQUIPO
+   add constraint FK_ASIGNACI_INFORMACI_EQUIPO foreign key (idequipo)
+      references EQUIPO (idequipo)
+      on delete restrict on update restrict;
+
+alter table ASIGNACIONPERIFERICO
+   add constraint FK_ASIGNACI_ASIGNACIO_FUNCIONA foreign key (IDUSUARIO)
+      references FUNCIONARIO (IDUSUARIO)
+      on delete restrict on update restrict;
+
+alter table FUNCIONARIO
+   add constraint FK_FUNCIONA_FUNCIONAR_ZONA foreign key (IDZONA)
+      references ZONA (IDZONA)
+      on delete restrict on update restrict;
+
+alter table FUNCIONARIO
+   add constraint FK_FUNCIONA_RRHH_SPI_DATO foreign key (IDSPI)
+      references SPI_DATOS (IDSPI)
+      on delete restrict on update restrict;
+
+alter table INFORMEEQUIPO
+   add constraint FK_INFORMEE_INFORME_D_EQUIPO foreign key (idequipo)
+      references EQUIPO (idequipo)
+      on delete restrict on update restrict;
+
+alter table INFORMEPERIFERICO
+   add constraint FK_INFORMEP_INFORME_P_PERIFERI foreign key (idperiferico)
+      references PERIFERICO (idperiferico)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_ACTIVO_ACTIVO foreign key (IDACTIVO)
+      references ACTIVO (IDACTIVO)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_PERTENENC_INSTITUC foreign key (IDINSTITUCION)
+      references INSTITUCION (IDINSTITUCION)
+      on delete restrict on update restrict;
+
+alter table REGISTRO_DEL_SPI
+   add constraint FK_REGISTRO_REGISTRO_SPI_DATO foreign key (IDSPI)
+      references SPI_DATOS (IDSPI)
+      on delete restrict on update restrict;
+
+alter table RELATIONSHIP_5
+   add constraint FK_RELATION_ASIGNACIO_ASIGNACI foreign key (idasignacion)
+      references ASIGNACIONPERIFERICO (idasignacion)
+      on delete restrict on update restrict;
+
+alter table RELATIONSHIP_5
+   add constraint FK_RELATION_ASIGNACIO_PERIFERI foreign key (idperiferico)
+      references PERIFERICO (idperiferico)
+      on delete restrict on update restrict;
+
+alter table SOFTWARE
+   add constraint FK_SOFTWARE_SOFTWARE_EQUIPO foreign key (idequipo)
+      references EQUIPO (idequipo)
+      on delete restrict on update restrict;
+
+alter table SPI_DATOS
+   add constraint FK_SPI_DATO_PERTENENC_INSTITUC foreign key (IDINSTITUCION)
+      references INSTITUCION (IDINSTITUCION)
+      on delete restrict on update restrict;
+
+alter table SPI_DATOS
+   add constraint FK_SPI_DATO_ZONA_ZONA foreign key (IDZONA)
+      references ZONA (IDZONA)
+      on delete restrict on update restrict;

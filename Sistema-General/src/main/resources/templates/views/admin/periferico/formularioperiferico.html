@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+<header th:replace="plantilla/templateadmin :: header"></header>
+
+<main class="main">
+
+<div class="container">
+
+	<br>
+	 <h2>PERIFÉRICOS</h2>
+     
+     <div class="container">
+  			<div class="row">
+   				 <div class="col-sm-9 ">
+   				 <br><br>
+      				  <p>Aquí ingrese las especificaciones de periféricos</p>
+   			 	 </div>
+    	 		<div class="col-sm-3">
+      				  <img th:src="@{/img/per1.ico}">
+   			 	 </div>
+ 			
+ 			 </div>
+	</div>
+	
+	<form th:action="@{/views/admin/periferico/save}" th:object="${periferico}" method="POST">
+  
+  	<div class="form-row">
+    <div class="form-group col-md-1">
+    	</div>
+    <input type="hidden" th:field="*{idperiferico}">
+    
+    	<div class="form-group col-md-5">
+      		<label for="nombre">Nombre del Periférico</label>
+      		<select th:field="*{nombreperiferico}" class="form-control " required="required">
+                              	<option value="IMPRESORA">IMPRESORA</option>
+                              	<option value="MOUSE">MOUSE</option>
+           						<option value="TECLADO">TECLADO</option>  
+           						<option value="PARLANTES">PARLANTES</option> 
+           						<option value="DISCO DURO">DISCO DURO</option> 
+           						<option value="CPU">CPU</option> 
+           						<option value="MONITOR">MONITOR</option>
+           						<option value="CAMARA">CAMARA WEB</option>
+           						<option value="MICROFONO">MICROFONO</option>
+           						<option value="CABLES">CABLES</option>
+           						<option value="OTROS">OTROS</option>
+                          </select>
+    	</div>
+    	
+    	<div class="form-group col-md-5">
+      		<label for="serie">Serie</label>
+      		<input type="text" class="form-control" id="serie" th:field="*{serie}" required="required"  >
+    	</div>
+    	<div class="form-group col-md-1">
+    	</div>
+ 	 </div>
+ 	 
+ 	 	<div class="form-row">
+    	<div class="form-group col-md-1">
+    	</div>
+    	<div class="form-group col-md-5">
+      		<label for="marca">Marca</label>
+      		<select th:field="*{marca}" class="form-control " required="required">
+                              	<option value="ASUS">ASUS</option>
+                              	<option value="BROTHER">BROTHER</option>
+           						<option value="CLON">CLON</option>  
+           						<option value="COMPAQ">COMPAQ</option>
+                              	<option value="DELL">DELL</option>
+           						<option value="HIBRIDO">HIBRIDO</option> 
+           						<option value="HP">HP</option>
+                              	<option value="LENOVO">LENOVO</option>
+           						<option value="LEXMARK">LEXMARK</option> 
+           						<option value="LEXMARK 35P85K1">LEXMARK 35P85K1</option> 
+           						<option value="MAC">MAC</option>
+                              	<option value="PROBOOK">PROBOOK</option>
+           						<option value="SAMSUNG SCX-4X28">SAMSUNG SCX-4X28</option>
+           						<option value="SHARP">SHARP</option>
+                              	<option value="SONY">SONY</option>
+                              	<option value="XTRATECH">XTRATECH</option>
+                          </select>
+    	</div>
+    	
+    	<div class="form-group col-md-5">
+      		<label for="modelo">Modelo</label>
+      		<input type="text" class="form-control" id="modelo" th:field="*{modelo}" required="required">
+    	</div>
+    	<div class="form-group col-md-1">
+    	</div>
+ 	 </div>
+ 	 
+ 	 	<div class="form-row">
+ 	 	<div class="form-group col-md-1">
+    	</div>
+ 	 	<div class="form-group col-md-8">
+      		<label for="observaciones">Observaciones</label>
+      		<input type="text" class="form-control" id="o" th:field="*{observaciones}" required="required">
+    	</div>
+    	
+    	<div class="form-group col-md-2">
+                        <label for="Estado">Estado</label>
+                        <select th:field="*{estado}" class="form-control " required="required">
+                              	<option value="BUENO">BUENO</option>
+                              	<option value="REGULAR">REGULAR</option>
+           						<option value="MAL ESTADO">MAL ESTADO</option>  
+                          </select>
+                    </div>
+                    <div class="form-group col-md-1">
+    	</div>
+ 	 </div>
+ 	 
+ 	 <div class="form-row">
+ 	 	<div class="form-group col-md-5">
+    	</div>
+ 	 	<div class="form-group col-md-4">
+      		<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/admin/periferico/}">
+   <a class="btn btn-info " th:href="@{/views/admin/periferico/}" role="button">Atrás</a>
+    	</div>
+    	
+    	<div class="form-group col-md-3">
+                    
+    	</div>
+ 	 </div>
+ 	   
+</form>
+</div>
+</main>
+
+<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+</body>
+</html>

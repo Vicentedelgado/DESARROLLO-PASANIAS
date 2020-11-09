@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+	<header th:replace="plantilla/templateadmin :: header"></header>
+
+	<main class="main">
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 ">
+					<h2>Asignacion de Equipo</h2>
+				</div>
+
+				<div class="col-sm-3 ">
+					<a class="btn btn-info " th:href="@{/views/admin/equipoasignacion/}"
+						role="button">Atras</a>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="Asignacion">
+
+				<form th:action="@{/views/admin/equipoasignacion/save}"
+					th:object="${asignacionequipo}" method="POST">
+
+					<input type="hidden" th:field="*{idasignacionequipo}">
+
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<label for="marca">Fecha de Asignación</label> <input type="date"
+								class="form-control" id="marca" th:field="*{fechainicio}"
+								required="required">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="modelo">Fecha Final de Asignacion</label> <input
+								type="date" class="form-control" id="modelo"
+								th:field="*{fechafin}">
+						</div>
+
+					</div>
+
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<label for="Nom">ID Funcionario</label> <input type="text"
+								class="form-control" id="modelo" th:field="*{idusuario}"
+								required="required">
+
+						</div>
+
+						<div class="form-group col-md-0.2">
+							<label for="Nom"> Buscar </label> <img
+								th:src="@{/img/buscar1.ico}" class=" form-control btn-info"
+								data-toggle="modal" data-target=".bd-example-modal-lg">
+
+
+							<div class="modal fade bd-example-modal-lg" tabindex="-1"
+								role="dialog" aria-labelledby="myLargeModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+
+
+
+										<div class="container mt-4">
+
+											<table id="tablabusqueda"
+												class="table table-striped table-bordered">
+												<thead class="thead-info">
+													<tr>
+														<th>ID FUNCIONARIO</th>
+														<th>Nombres</th>
+														<th>Apellido</th>
+														<th>Cedula</th>
+														<th>ID Zonal</th>
+													</tr>
+												</thead>
+												<tbody>
+
+													<tr th:each="funcionario:${funcionario}">
+														<td th:text="${funcionario.idusuario}"></td>
+														<td th:text="${funcionario.nombres}"></td>
+														<td th:text="${funcionario.apellidos}"></td>
+														<td th:text="${funcionario.cedula}"></td>
+														<td th:text="${funcionario.idzona}"></td>
+
+													</tr>
+
+
+												</tbody>
+
+
+
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="form-group col-md-4">
+							<label for="mae"> ID Equipo</label> <input type="text"
+								class="form-control" id="mae" th:field="*{idequipo}"
+								required="required">
+						</div>
+
+						<div class="form-group col-md-0.5">
+							<label for="NomP"> Buscar </label> <img
+								th:src="@{/img/buscar2.ico}" class=" form-control btn-info"
+								data-toggle="modal" data-target=".bd-example-modal">
+
+							<div class="modal fade bd-example-modal" tabindex="-1"
+								role="dialog" aria-labelledby="myLargeModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="container mt-4">
+
+											<table id="tablaequipo"
+												class="table table-striped table-bordered">
+												<thead class="thead-info">
+													<tr>
+														<th>ID Equipo</th>
+														<th>Nombre del Equipo</th>
+														<th>Serie</th>
+														<th>Estado</th>
+														<th>Modelo</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="equipo:${equipo}">
+														<td th:text="${equipo.idequipo}"></td>
+														<td th:text="${equipo.nombreequipo}"></td>
+														<td th:text="${equipo.serie}"></td>
+														<td th:text="${equipo.estado}"></td>
+														<td th:text="${equipo.modelo}"></td>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-row">
+
+						<div class="form-group col-md-9">
+							<label for="ma">Observaciones</label> <input type="text"
+								class="form-control" id="ma" th:field="*{observaciones}"
+								required="required">
+						</div>
+					</div>
+					<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/admin/equipoasignacion/}">
+				</form>
+			</div>
+
+		</div>
+
+	</main>
+	<footer th:replace="plantilla/templateadmin :: footer">
+
+	</footer>
+</body>
+</html>

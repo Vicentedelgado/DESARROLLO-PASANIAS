@@ -1,6 +1,4 @@
 4;1;1;San Lorenzo;Armada Nacional y Tácito Ortíz;sin numero;1;SI;San Lorenzo, Eloy Alfaro, Río Verde;Convenio caducado
-1;1;14;Ibarra;Sánchez Cifuentes y Velasco, Edif. Banco La Previsora;062505289;1;SI;Ibarra, Urcuquí, Pimampiro;Vigente convenio hasta agosto 2020
-2;1;15;Otavalo;Cdla. Jacinto Collaguazo Primera Etapa, calles María Pijal y Pedro Narváez;062926375;1;SI;Otavalo, Cotacachi, Antonio Ante;Convenio caducado
 3;1;1;Tulcán;Barrio El Bosque, calle Los Álamos y Olivos frente al MIES;062251837;1;SI;Mira, Espejo, Bolívar, Montúfar, Huaca, Tulcán. ;Convenio caducado
 5;1;16;Esmeraldas;Centro de Atención Ciudadana, Puerto Artesanal, Av. Jaime Roldós Aguilera Bloque B;sin numero;1;SI;Esmeraldas, Atacames, Muisne;Sin observaciones
 6;1;17;Lago Agrio;Av. Circunvalación y Av. Monseñor Gonzalo López Marañón, segundo piso;062991940;1;SI;Sucumbíos, Gonzalo Pizarro, Cascales, Lago Agrio, Shushufindi, Putumayo;Sin Observaciones
@@ -38,8 +36,11 @@
 36;7;5;Piñas;Calle Machala y Av. Los Shirys;0992935902;1;SI;Piñas, Zaruma, Portovelo, Atahualpa, Marcabelí, Balsas, Santa Rosa, Arenillas, Las Lajas, Huaquillas.;Sin observaciones
 20;4;19;Jama/Pedernales;Calle López Castillo, entre Aura América y S-N;0959431435;1;SI;Sucre, San Vicente, Jama, Pedernales  ;Sin observaciones
 41;8;21;Centro Sur;Francisco de Orellana y Justino Cornejo;0992491894;1;SD;Febres Cordero, Ximena, García Moreno, Letamendi, Ayacucho, Olmedo, Bolívar, Sucre, Urdaneta, Nueve de Octubre, Rocafuerte, Pedro Carbo, Roca. ;Sin observaciones
+1;1;14;Ibarra;Sánchez Cifuentes y Velasco, Edif. Banco La Previsora;062505289;0;SI;Ibarra, Urcuquí, Pimampiro;Vigente convenio hasta agosto 2020
+2;1;23;Otavalo;Cdla. Jacinto Collaguazo Primera Etapa, calles María Pijal y Pedro Narváez;062926375;1;SI;Calle Bolívar entre Abdón Calderón y Juan Montalvo;Convenio caducado
 42;8;1;Norte;Edif. Joaquín Gallegos Lara, Av Carlos Luis Plaza Dañín;0998337975;1;SD;Bellavista, Mapasingue, Florida, Martha de Roldós, Juan Montalvo, Samanes. Distrito 7-7 Circuitos, Pascuales, San Francisco, Bastión Popular 1 y 2, Mucho Lote, Las Orquídeas, Montebello, Puente Lucía. Distrito 8-6 Circuitos: Flor de Bastión, Nueva Prosperina, Monte Sinaí, El Fortín, Voluntad de Dios,  Balerio Estacio. Distrito 9-3 Circuitos: Ceibos, Puerto Hondo, Chongón. Distrito 10-3 Circuitos: Progeso, Posorja y El Morro.;Sin observaciones
 44;9;1;Quito Centro;Luis Felipe Borja N13-51 entre Ante y Arenas Edif. Casares;2507392;1;NO;Puengasí, Centro Histórico, San Juan, La Libertad, La Concepción, Mariscal Sucre, Belisario Quevedo, San Isidro del Inca, Rumipamba, Kennedy, Nayón, Iñaquito, Cochapamba, Jipijapa, Zámbiza, Itchimbía, Tumbaco, Cumbayá, Pifo, Yaruquí, El Quinche, Chefa, Puembo, Tababela.;Sin observaciones
 43;9;1;Quito Norte;Veracruz N35-14 y Pedro Bedón;3318888 EXT. 119;1;NO;Nanegal, Nanegalito, Pacto, Calderón, Llano Chico, Guayllabamba, Puéllaro, Atahualpa, San José de Minas, El Condado, San Antonio, Pomasquí, Calacalí, Comité del Pueblo, Carcelén, Cotocollao, Nono, Chavezpamba.;Sin observaciones
 45;9;1;Quito Sur;Av. Teniente Hugo Ortiz S-N y Quevedo;2610104 ext. 316;1;NO;Chilibulo, San Bartolo, Chimbacalle, Solanda, La Mena, Lloa, La Magdalena, La Ferroviaria, Chillogallo, Guamaní, Quitumbe, Turubamba, La Ecuatoriana, Conocoto, Pintag, Amaguaña, Alangasí,  Guangopolo, La Merced.;Sin observaciones
 38;7;5;Calvas;Calle González Suárez;0967143707;1;SD;Gonzanamá, Quilanga, Calvas, Sozoranga, Zapotillo, Macará, Espíndola.;Sin observaciones
+46;9;13;Planta Central;Planta Central- General Robles E3-33 entre Ulpiano Páez y 9 de Octubre;23955840;1;SI;Todo el país Ecuador;Planta Central Quito Secretaría de Derechos Humanos

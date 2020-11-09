@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+<header th:replace="plantilla/templateadmin :: header"></header>
+
+<main class="main">
+
+<div class="container mt-4">
+	
+	<table id="tablainfoequi" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+ 		<thead class="thead bg-info text-white">
+ 			<tr>
+ 				<th>ID</th>
+ 				<th>Fecha de Requerimiento</th>
+ 				<th>Fecha de Atencion</th>
+ 				<th>Persona Encargada</th>
+ 				<th>Problemas Presentados</th>
+ 				<th>Actividades</th>
+ 				<th>Conclusiones</th>
+ 				<th>Nombre Equipo</th>
+ 				<th>Serie del Equipo</th>
+ 				<th>Modelo del Equipo</th>
+ 				<th>Imprimir</th>
+ 			</tr>
+ 	</thead>
+ 	<tbody class="tbody">
+ 	
+ 			<tr th:each="informeequipo:${informeequipo}"> 
+ 				<td scope="row">
+					<a class= "btn btn-info btn-xs"
+						th:href="@{/views/admin/informeequipo/detalle/}+${informeequipo.idinformeequipo}"
+						th:text="${informeequipo.idinformeequipo}">
+					</a>
+				</td>
+	 			<td th:text="${#dates.format(informeequipo.fecharequerimiento, 'dd/MM/yyyy')}"></td>
+	 			<td th:text="${#dates.format(informeequipo.fechaatencion, 'dd/MM/yyyy')}"></td>
+	 			<td th:text="${informeequipo.personaencargada}"></td>
+	 			<td th:text="${informeequipo.novedadessolicitud}"></td>
+	 			<td th:text="${informeequipo.actividades}"></td>
+	 			<td th:text="${informeequipo.conclusiones}"></td>
+	 			<td th:text="${informeequipo.idequipo.nombreequipo}"></td>
+	 			<td th:text="${informeequipo.idequipo.serie}"></td>
+	 			<td th:text="${informeequipo.idequipo.modelo}"></td>
+	 			<td>
+					<a class="btn" id="pdf"
+						th:href="@{'/views/admin/informeequipo/filtrar1/'+ ${informeequipo.idinformeequipo}+'/?format=pdf'}"
+						title="Imprimir" target="_blank"> 
+						<img class="img-responsive center-box" th:src="@{/img/impresora.ico}">
+					</a>
+	 			</td> 			
+ 			</tr>
+ 	
+ 	
+ 	</tbody>
+ 	
+ 	
+</table>
+</div>
+
+</main>
+
+<footer th:replace="plantilla/templateadmin :: footer">
+
+<script type="text/javascript" th:src="@{/js/jquery-3.5.1.slim.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+
+<header th:replace="plantilla/templateadmin :: header"></header>
+<main class="main">
+	<div class="conteiner">
+		<div class="card-header bg-dark text-white" th:text="${titulo}" align="center"></div>
+		<div class="conteiner">
+			<div class="row">
+				<div class="col-sm-4 ">
+   			 	 </div>
+   			 	 <div class="col-sm-1 ">
+   			 	 </div>
+				<div class="col-sm-2 ">
+					<h6 style="color:#98CAE0">Nombre del Equipo:</h6>
+					<h6 style="color:#98CAE0">Tipo:</h6>
+					<h6 style="color:#98CAE0">Fecha de Levantamiento:</h6>
+					<h6 style="color:#98CAE0">Marca:</h6>
+					<h6 style="color:#98CAE0">Modelo:</h6>
+					<h6 style="color:#98CAE0">Serie:</h6>
+					<h6 style="color:#98CAE0">Codigo de la Institución:</h6>
+					<h6 style="color:#98CAE0">Estado:</h6>
+					<h6 style="color:#98CAE0">Observaciones:</h6>
+					<h6 style="color:#98CAE0">IP:</h6>
+					<h6 style="color:#98CAE0">Código Anydesk:</h6>
+					<h6 style="color:#98CAE0">Tipo de conexión:</h6>
+					<h6 style="color:#98CAE0">RAM:</h6>
+					<h6 style="color:#98CAE0">MAC 0:</h6>
+					<h6 style="color:#98CAE0">MAC 1:</h6>
+					<h6 style="color:#98CAE0">Serie SNGP:</h6>
+					<h6 style="color:#98CAE0">Tipo de procesador:</h6>
+   			 	 </div>
+   			 	 <div class="col-sm-2 ">
+					<ul class="list-group" list-style-type: none>
+					<li class="list-group" th:text="${equipo.nombreequipo}"></li>
+					<li class="list-group" th:text="${equipo.tipo}"></li>
+					<li class="list-group" th:text="${equipo.fechaadquisicion}"></li>
+					<li class="list-group" th:text="${equipo.marca}"></li>
+					<li class="list-group" th:text="${equipo.modelo}"></li>
+					<li class="list-group" th:text="${equipo.serie}"></li>
+					<li class="list-group" th:text="${equipo.codigoinstitucion}"></li>
+					<li class="list-group" th:text="${equipo.estado}"></li>
+					<li class="list-group" th:text="${equipo.observaciones}"></li>
+					<li class="list-group" th:text="${equipo.ip}"></li>
+					<li class="list-group" th:text="${equipo.codigoanydesk}"></li>
+					<li class="list-group" th:text="${equipo.tipoconexion}"></li>
+					<li class="list-group" th:text="${equipo.ram}"></li>
+					<li class="list-group" th:text="${equipo.mac0}"></li>
+					<li class="list-group" th:text="${equipo.mac1}"></li>
+					<li class="list-group" th:text="${equipo.seriesngp}"></li>
+					<li class="list-group" th:text="${equipo.tipoprocesador}"></li>
+				</ul>
+   			 	 </div>
+				
+			</div>
+		</div>
+	</div>
+</main>
+
+<footer th:replace="plantilla/templateadmin :: footer">
+</footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateasignador::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+<header th:replace="plantilla/templateasignador :: header"></header>
+
+<main class="main">
+
+<div class="container">
+
+
+<br>
+	<a class="btn btn-outline-info" th:href="@{/views/asignador/equipoasignacion/create}" role="button">Añadir Asignación Equipo</a>
+	
+	<br>
+
+</div>
+
+
+<div class="container mt-4">
+
+	<table id="tablalistequipo" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+ 		<thead class="thead bg-info text-white">
+ 			<tr>
+ 				<th>ID</th>
+ 				<th>Fecha de Asignación</th>
+ 				<th>Fecha Final de Asignación</th>
+ 				<th>Cédula Funcionario </th>
+ 				<th>Nombre Funcionario </th>
+ 				<th>Apellido Funcionario </th>
+ 				<th>Serie Equipo</th>
+ 				<th>Nombre Equipo</th>
+ 				<th>Observaciones</th>
+ 				<th>Editar</th>
+ 				<th>Imprimir</th>
+ 				
+ 			</tr>
+ 	</thead>
+ 	<tbody>
+ 	
+ 			<tr th:each="asignacion:${asignacionequipo}"> 
+ 			<td th:text="${asignacion.idasignacionequipo}"></td>
+ 			<td th:text="${#dates.format(asignacion.fechainicio, 'dd/MM/yyyy')}"></td>
+ 			<td th:text="${#dates.format(asignacion.fechafin, 'dd/MM/yyyy')}"></td>
+ 			<td th:text="${asignacion.idusuario.cedula}"></td>
+ 			<td th:text="${asignacion.idusuario.nombres}"></td>
+ 			<td th:text="${asignacion.idusuario.apellidos}"></td>
+ 			<td th:text="${asignacion.idequipo.serie}"></td>
+ 			<td th:text="${asignacion.idequipo.nombreequipo}"></td>
+ 			<td th:text="${asignacion.observaciones}">
+ 			<td>
+ 			<a class="btn btn-success btn-sm" th:href="@{/views/asignador/equipoasignacion/edit/} + ${asignacion.idasignacionequipo}" th:text="'Editar'"></a>
+ 			</td>
+ 			<td>
+				<a class="btn" id="pdf"
+						th:href="@{'/views/admin/equipoasignacion/filtrar1/'+ ${asignacion.idasignacionequipo}+'/?format=pdf'}"
+						title="Imprimir" target="_blank"> 
+						<img class="img-responsive center-box" th:src="@{/img/impresora.ico}">
+				</a>
+ 			</td>
+ 			</tr>
+ 	
+ 	
+ 	</tbody>
+ 	
+ 	
+ 	
+ </table>
+	</div>
+
+</main>
+
+
+
+
+<footer th:replace="plantilla/templateasignador :: footer">
+
+</footer>
+
+</body>
+</html>

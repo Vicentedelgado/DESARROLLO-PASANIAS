@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateadmin::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+	<header th:replace="plantilla/templateadmin :: header"></header>
+
+	<main class="main">
+
+		<div class="container">
+
+			<br>
+			<h2>Equipo</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9 ">
+						<br>
+						<p>Aquí ingrese las especificaciones del Equipo</p>
+					</div>
+
+					<div class="col-sm-3 ">
+						<img th:src="@{/img/equi1.ico}">
+					</div>
+
+				</div>
+			</div>
+
+			<form th:action="@{/views/admin/equipo/save}" th:object="${equipo}"
+				method="POST">
+
+				<div class="form-row">
+
+					<input type="hidden" th:field="*{idequipo}">
+
+					<div class="form-group col-md-6">
+						<label for="nombre">Nombre del Equipo</label> <input type="text"
+							class="form-control" id="nombre" th:field="*{nombreequipo}"
+							required="required">
+					</div>
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-3">
+						<label for="tipo">Tipo</label> <select th:field="*{tipo}"
+							class="form-control " required="required">
+							<option value="ESCRITORIO">ESCRITORIO</option>
+							<option value="LAPTOP">LAPTOP</option>
+							<option value="PORTATIL">PORTATIL</option>
+							<option value="PORTATIL">PC</option>
+							<option value="PORTATIL">SERVIDOR</option>
+							<option value="TODO EN 1">PORTATIL</option>
+							<option value="TODO EN 1 PORTATIL">PORTATIL</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="serie">Serie</label> <input type="text"
+							class="form-control" id="serie" th:field="*{serie}"
+							required="required">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="marca">Marca</label> <select th:field="*{marca}"
+							class="form-control " required="required">
+							<option value="ASUS">ASUS</option>
+							<option value="BROTHER">BROTHER</option>
+							<option value="CLON">CLON</option>
+							<option value="COMPAQ">COMPAQ</option>
+							<option value="DELL">DELL</option>
+							<option value="HIBRIDO">HIBRIDO</option>
+							<option value="HP">HP</option>
+							<option value="LENOVO">LENOVO</option>
+							<option value="LEXMARK">LEXMARK</option>
+							<option value="LEXMARK 35P85K1">LEXMARK 35P85K1</option>
+							<option value="MAC">MAC</option>
+							<option value="PROBOOK">PROBOOK</option>
+							<option value="SAMSUNG SCX-4X28">SAMSUNG SCX-4X28</option>
+							<option value="SHARP">SHARP</option>
+							<option value="SONY">SONY</option>
+							<option value="XTRATECH">XTRATECH</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="disco">Disco</label> <input type="text"
+							class="form-control" id="serie" th:field="*{disco}"
+							required="required">
+					</div>
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-4">
+						<label for="estado">Estado</label> <select th:field="*{estado}"
+							class="form-control " required="required">
+							<option value="BUENO">BUENO</option>
+							<option value="REGULAR">REGULAR</option>
+							<option value="MAL ESTADO">MAL ESTADO</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="modelo">Modelo</label> <input type="text"
+							class="form-control" id="modelo" th:field="*{modelo}"
+							required="required">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="fecha">Fecha Levantamiento Información</label> <input
+							type="date" class="form-control" id="fecha"
+							th:field="*{fechaadquisicion}" required="required">
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-4">
+						<label for="codigo">Código Institucional</label> <input
+							type="text" class="form-control" id="codigo"
+							th:field="*{codigoinstitucion}" required="required">
+					</div>
+					<div class="form-group col-md-8">
+						<label for="o">Observaciones</label> <input type="text"
+							class="form-control" id="o" th:field="*{observaciones}"
+							required="required">
+					</div>
+
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-3">
+						<label for="modelo">IP</label> <input type="text"
+							class="form-control" id="m" th:field="*{ip}" required="required"
+							pattern="[0-9-.]+">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="anydesk">Código AnyDesk</label> <input type="text"
+							class="form-control" id="anydesk" th:field="*{codigoanydesk}"
+							required="required" pattern="[0-9]+" min="5" max="15"
+							placeholder="000 000 000">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="c">Tipo de Conexión</label> <select
+							th:field="*{tipoconexion}" class="form-control "
+							required="required">
+							<option value="NO APLICA">NO APLICA</option>
+							<option value="WIFI">WIFI</option>
+							<option value="CABLEADO">CABLEADO</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="ram">Ram</label> <input type="text"
+							class="form-control" id="ram" th:field="*{ram}"
+							required="required" pattern="[0-9]" min="1" max="1">
+					</div>
+
+				</div>
+
+				<div class="form-row">
+
+					<div class="form-group col-md-3">
+						<label for="mc">Mac0</label> <input type="text"
+							class="form-control" id="mc" th:field="*{mac0}" min="11" max="17">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="mc1">Mac1</label> <input type="text"
+							class="form-control" id="mc1" th:field="*{mac1}" min="11"
+							max="17">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="seriesngp">Serie Sngp</label> <input type="text"
+							class="form-control" id="seriesngp" th:field="*{seriesngp}"
+							required="required" pattern="[0-9]+" min="5" max="6">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="pro">Tipo de Procesador</label> <input type="text"
+							class="form-control" id="pro" th:field="*{tipoprocesador}"
+							required="required">
+					</div>
+				</div>
+				<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/admin/equipo/}">
+			</form>
+			<a class="btn btn-info " th:href="@{/views/admin/equipo/}" role="button">Atrás</a>
+		</div>
+	</main>
+	<footer th:replace="plantilla/templateadmin :: footer">
+
+	</footer>
+</body>
+</html>

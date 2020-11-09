@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantilla/templateasignador::head">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+<body class="body1">
+	<header th:replace="plantilla/templateasignador :: header"></header>
+	<main class="main">
+
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 ">
+					<br>
+					<h2>Asignación Periférico</h2>
+				</div>
+
+				<div class="col-sm-3 ">
+					<img th:src="@{/img/per1.ico}">
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="container">
+
+			<div class="Asignacion">
+
+				<form th:action="@{/views/asignador/perifericoasignacion/save}"
+					th:object="${asignacionperiferico}" method="POST">
+
+					<input type="hidden" th:field="*{idasignacion}">
+
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<label for="marca">Fecha de Asignación</label> <input type="date"
+								class="form-control" id="marca" th:field="*{fechainicio}"
+								required="required">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="modelo">Fecha Final de Asignación</label> <input
+								type="date" class="form-control" id="modelo"
+								th:field="*{fechafin}" required="required">
+						</div>
+
+					</div>
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<label for="Nom">ID Funcionario</label> <input type="text"
+								class="form-control" id="modelo" th:field="*{idusuario}"
+								required="required">
+
+						</div>
+
+						<div class="form-group col-md-0.2">
+							<label for="Nom"> Buscar </label> <img
+								th:src="@{/img/buscar1.ico}" class=" form-control btn-info"
+								data-toggle="modal" data-target=".bd-example-modal-lg">
+
+
+							<div class="modal fade bd-example-modal-lg" tabindex="-1"
+								role="dialog" aria-labelledby="myLargeModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+
+
+
+										<div class="container mt-4">
+
+											<table id="tablabusqueda"
+												class="table table-striped table-bordered">
+												<thead class="thead-dark">
+													<tr>
+														<th>ID FUNCIONARIO</th>
+														<th>Nombres</th>
+														<th>Apellido</th>
+														<th>Cedula</th>
+														<th>ID Zonal</th>
+													</tr>
+												</thead>
+												<tbody>
+
+													<tr th:each="funcionario:${funcionario}">
+														<td th:text="${funcionario.idusuario}"></td>
+														<td th:text="${funcionario.nombres}"></td>
+														<td th:text="${funcionario.apellidos}"></td>
+														<td th:text="${funcionario.cedula}"></td>
+														<td th:text="${funcionario.idzona}"></td>
+
+													</tr>
+
+
+												</tbody>
+
+
+
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="form-group col-md-3">
+							<label for="NombreP"> ID Periférico</label> <input type="text"
+								class="form-control" id="NombreP" th:field="*{idperiferico}"
+								required="required">
+						</div>
+
+						<div class="form-group col-md-0.5">
+							<label for="NomP"> Buscar </label> <img
+								th:src="@{/img/buscar2.ico}" class=" form-control btn-info"
+								data-toggle="modal" data-target=".bd-example-modal">
+
+
+							<div class="modal fade bd-example-modal" tabindex="-1"
+								role="dialog" aria-labelledby="myLargeModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+
+										<div class="container mt-4">
+
+											<table id="tablaperiferico"
+												class="table table-striped table-bordered">
+												<thead class="thead-dark">
+													<tr>
+														<th>ID PERIFÉRICO</th>
+														<th>Nombre</th>
+														<th>Modelo</th>
+														<th>Serie</th>
+														<th>Estado</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="perifericos:${periferico}">
+														<td th:text="${perifericos.idperiferico}"></td>
+														<td th:text="${perifericos.nombreperiferico}"></td>
+														<td th:text="${perifericos.modelo}"></td>
+														<td th:text="${perifericos.serie}"></td>
+														<td th:text="${perifericos.estado}"></td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-9">
+							<label for="marc">Observación</label> <input type="text"
+								class="form-control" id="marc" th:field="*{observaciones}"
+								required="required">
+						</div>
+					</div>
+					<input type="submit" class="btn btn-primary" th:value="Guardar" th:href="@{/views/asignador/perifericoasignacion/}">
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="plantilla/templateasignador :: footer">
+	</footer>
+</body>
+</html>

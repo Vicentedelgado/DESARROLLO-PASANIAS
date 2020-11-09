@@ -1,6 +1,6 @@
-1;Instalaciones;\N
-2;Bienes;\N
-3;Equipos;\N
-4;Otros;\N
-5;Movilidad;\N
-6;Conectividad;\N
+1;\N;Instalaciones
+2;\N;Bienes
+3;\N;Equipos
+4;\N;Otros
+5;\N;Movilidad
+6;\N;Conectividad

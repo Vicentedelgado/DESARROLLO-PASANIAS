@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title>Asignador</title>
+<!-- Bootstarp Básico -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+<!-- Data table css -->
+<link rel="stylesheet" th:href="@{/datatable/DataTables-1.10.21/css/dataTables.bootstrap4.min.css}">
+<link th:href="@{/css/estilos.css}" rel="stylesheet">
+
+</head>
+<body>
+	<!-- NAVEGACION -->
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-lg" >
+			<div class="container">
+				<a class="navbar-brand" th:href="@{/asignador}"><img class="imagenlogo" th:src="@{/img/sdh.png}" /></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link"
+						th:href="@{/asignador}">Inicio</a></li>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</header>
+
+<!-- CONTENIDO -->
+	<div class="container">
+	
+	
+	
+	</div>
+
+		
+
+	<!-- PIE DE PAGINA -->
+
+	<footer th:fragment="footer">
+
+	<div class="pie">
+	<img th:src="@{/img/piedepagina.png}" width="800" height="120">
+	</div>
+ 
+
+		<!-- Jquery Básico -->
+		<script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/Ayuda.js}" src="../static/js/Ayuda.js"></script>
+		<!-- Data tabla js -->
+		<script type="text/javascript" th:src="@{/datatable/datatables.min.js}"></script>
+	    <script type="text/javascript" th:src="@{/datatable/main.js}"></script>
+
+	</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+1;Contrato Ocasional
+2;Nombramiento Provisional 
+3;Nombramiento
+4;Comisión de Servicio
+5;SD
